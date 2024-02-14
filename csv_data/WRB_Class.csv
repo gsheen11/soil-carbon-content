@@ -1,0 +1,35 @@
+0,1,2,3,4,5,6,7,8
+1,1,1,1,Acrisols - AC,AC,247,152,4
+2,1,2,2,Alisols - AL,AL,255,255,190
+3,1,3,3,Andosols - AN,AN,254,0,0
+4,1,4,4,Arenosols - AR,AR,245,212,161
+5,1,5,5,Anthrosols - AT,AT,207,152,4
+6,1,6,6,Chernozems - CH,CH,145,77,53
+7,1,7,7,Calcisols - CL,CL,254,244,0
+8,1,8,8,Cambisols - CM,CM,254,190,0
+9,1,9,9,Cryosols - CR,CR,75,61,172
+10,1,10,10,Fluvisols - FL,FL,0,254,253
+11,1,11,11,Ferralsols - FR,FR,255,135,33
+12,1,12,12,Glaciers - GG,GG,212,212,212
+13,1,13,13,Gleysols - GL,GL,128,131,217
+14,1,14,14,Gypsisols - GY,GY,254,246,164
+15,1,15,15,Histosols - HS,HS,112,107,102
+17,1,17,17,Kastanozems - KS,KS,202,147,127
+18,1,18,18,Leptosols - LP,LP,209,209,209
+19,1,19,19,Luvisols - LV,LV,250,132,132
+20,1,20,20,Lixisols - LX,LX,255,190,190
+21,1,21,21,Nitisols - Nt,Nt,255,167,127
+22,1,22,22,Phaeozems - PH,PH,189,100,70
+23,1,23,23,Planosols - PL,PL,247,125,58
+24,1,24,24,Plinthosols - PT,PT,115,0,0
+25,1,25,25,Podzols - PZ,PZ,12,217,0
+26,1,26,26,Regosols - RG,RG,254,227,164
+27,1,27,27,Retisols - RT,RT,254,194,194
+28,1,28,28,Solonchaks - SC,SC,254,0,250
+30,1,29,29,Solonetz - SN,SN,249,194,254
+31,1,30,30,Stagnosols - ST,ST,64,192,233
+32,1,31,31,Technosols - TC,TC,145,0,157
+33,1,32,32,Umbrisols - UM,UM,115,142,127
+34,1,33,33,Vertisols - VR,VR,197,0,255
+35,1,34,34,Open Inland Water - WR,WR,0,0,255
+36,1,35,35,No Data - ND,ND,255,255,255

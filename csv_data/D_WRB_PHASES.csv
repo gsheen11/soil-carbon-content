@@ -1,0 +1,557 @@
+0,1,2
+1,AC,Acrisol
+2,ACfgfr,Ferric Fragic Acrisol
+3,ACfggl,Gleyic Fragic Acrisol
+4,ACfr,Ferric Acrisol
+5,ACfr,Ferric Acrisol
+6,ACfrkk,Akroskeletic Ferric Acrisol
+7,ACfrsk,Skeletic Ferric Acrisol
+8,ACgl,Gleyic Acrisol
+9,ACglkk,Akroskeletic Gleyic Acrisol
+10,ACha,Haplic Acrisol
+11,ACkk,Akroskeletic Acrisol
+12,ACkkfr,Akroskeletic Ferric Acrisol
+13,ACle,Leptic Acrisol
+14,AClefr,Ferric Leptic Acrisol
+15,AClekk,Akroskeletic Leptic Acrisol
+16,ACsk,Skeletic Acrisol
+17,AL,Alisol
+18,ALfr,Ferric Alisol
+19,ALgl,Gleyic Alisol
+20,ALha,Haplic Alisol
+21,ALle,Leptic Alisol
+22,AN,Andosol
+23,ANdy,Dystric Andosol
+24,ANgl,Gleyic Andosol
+25,ANkk,Akroskeletic Andosol
+26,ANkksk,Skeletic Akroskeletic Andosol
+27,ANledy,Dystric Leptic Andosol
+28,ANlemo,Mollic Leptic Andosol
+29,ANlesk,Skeletic Leptic Andosol
+30,ANleum,Umbric Leptic Andosol
+31,ANlevi,Vitric leptic Andosol
+32,ANmo,Mollic Andosol
+33,ANmokk,Akroseletic Mollic Andosol
+34,ANsk,Skeletic Andosol
+35,ANum,Umbric Andosol
+36,ANumkk,Akroskeletic Umbric Andosol
+37,ANumsk,Skeletic Umbric Andosol
+38,ANvi,Vitric Andosol
+39,ANvikk,Akroskeletic Vitric Andosol
+40,ANviskkk,Akroskeletic Skeletic Vitric Andosol
+41,AR,Arenosol
+42,ARbr,Brunic Arenosol
+43,ARbrkk,Akroskeletic Brunic Arenosol
+44,ARbrye,Yermic Brunic Arenosol
+45,ARca,Calcaric Arenosol
+46,ARcakk,Akroskeletic Calcaric Arenosol
+47,ARcq,Claric Arenosol
+48,ARcqkk,Akroskeletic Claric Arenosol
+49,ARfl,Fluvic Arenosol
+50,ARkk,Akroskeletic Arenosol
+51,ARpr,Protic Arenosol
+52,ARprkk,Akroskeletic Protic Arenosol
+53,ARqg,Protoargic Arenosol
+54,ARqgkk,Akroskeletic Protoargic Arenosol
+55,ARse,Sideralic Arenosol
+56,ARsekk,Akroskeletic Sideralic Arenosol
+57,ARskbr,Brunic Skeletic Arenosol
+58,ARye,Yermic Arenosol
+59,ARyeca,Calcaric Yermic Arenosol
+60,ARyecq,Claric Yermic Arenosol
+61,ARyeqg,Protoargic Yermic Arenosol
+62,AT,Anthrosol
+63,ATht,Hortic Anthrosol
+64,AThy,Hydrargic Anthrosol
+65,ATir,Irragric Anthrosol
+66,CRra,Reducaquic Cryosol
+67,CH,Chernozem
+68,CHcc,Calcic Chernozem
+69,CHcckk,Akroskeletic Calcic Chernozem
+70,CHccsk,Skeletic Calcic Chernozem
+71,CHgl,Gleyic Chernozem
+72,CHha,Haplic Chernozem
+73,CHkk,Akroskeletic Chernozem
+74,CHle,Leptic Chernozem
+75,CHlecc,Calcic Leptic Chernozem
+76,CHlegl,Gleyic Leptic Chernozem
+77,CHlelv,Luvic Leptic Chernozem
+78,CHlv,Luvic Chernozem
+79,CHlvkk,Akroskeletic Luvic Chernozem
+80,CHsk,Skeletic Chernozem
+81,CHsklv,Luvic Skeletic Chernozem
+82,CHto,Tonguic Chernozem
+83,CL,Calcisol
+84,CLha,Haplic Calcisol
+85,Clhaqs,Protosodic Haplic Calcisol
+86,CLkk,Akroskeletic Acrisol
+87,CLkkqs,Protosodic Akroskeletic Calcisol
+88,CLle,Leptic Calcisol
+89,CLlekk,Akroskeletic Leptic Calcisol
+90,CLlelv,Luvic Leptic Calcisol
+91,CLlelvkk,Akroskeletic Luvic Leptic Calcisol
+92,CLlp,Leptic Calcisol
+93,CLlv,Luvic Calcisol
+94,CLlvkk,Akroskeletic Luvic Calcisol
+95,CLlvsk,Skeletic Luvic Calcisol
+96,CLlvye,Yermic Luvic Calcisol
+97,CLpt,Petric Calcisol
+98,CLptkk,Akroskeletic Petric Calcisol
+99,CLptle,Leptic Petric Calcisol
+100,CLptye,Yermic Petric Calcisol
+101,CLsk,Skeletic Calciol
+102,CM,Cambisol
+103,CMca,Calcaric Cambisol
+104,CMcaqs,Protosodic Calcaric Cambisol
+105,CMcr,Chromic Cambisol
+106,CMcrkk,Akroskeletic Chromic Cambisol
+107,CMcrqs,Protosodic Chromic Cambisol
+108,CMcrsk,Skeletic Chromic Cambisol
+109,CMdy,Dystric Cambisol
+110,CMeu,Eutric Cambisol
+111,CMfg,Fragic Cambisol
+112,CMfgdy,Dystric Fragic Cambisol
+113,CMfgeu,Eutric Fragic Cambisol
+114,CMfggl,Gleyic Fragic Cambisol
+115,CMfl,Ferralic Cambisol
+116,CMgl,Gleyic Cambisol
+117,CMglkk,Akroskeletic Gleyic Cambisol
+118,CMglsk,Skeletic Gleyic Cambisol
+119,CMkkca,Calcaric Akroskeletic Cambisol
+120,CMkkdy,Dystric Akroskeletic Cambisol
+121,CMkkeu,Eutric Akroskeletic Cambisol
+122,CMkkskdy,Dystric Skeletic Akroskeletic Cambisol
+123,CMkkskeu,Eutric Skeletic Akroskeletic Cambisol
+124,CMleca,Calcaric Leptic Cambisol
+125,CMlecr,Chromic Leptic Cambisol
+126,CMlecrkk,Akroskeletic Chromic Leptic Cambisol
+127,CMledy,Dystric Leptic Cambisol
+128,CMleeu,Eutric Leptic Cambisol
+129,CMlefl,Fluvic Leptic Cambisol
+130,CMlegl,Gleyic Leptic Cambisol
+131,CMlekkca,Calcaric Akroskeletic Leptic Cambisol
+132,CMlekkdy,Dystric Akroskeletic Leptic Cambisol
+133,CMlekkeu,Eutric Akroskeletic Leptic Cambisol
+134,CMleskdy,Dystric Skeletic Leptic Cambisol
+135,CMleskeu,Eutric Skeletic Leptic Cambisol
+136,CMlevr,Vertic Leptic Cambisol
+137,CMlpca,Calcaric Leptic Cambisol
+138,CMsekk,Akroskeletic Sideralic Cambisol
+139,CMskca,Calcaric Skeletic Cambisol
+140,CMskdy,Dystric Skeletic Cambisol
+141,CMskeu,Eutric Skeletic Cambisol
+142,CMskkkdy,Dystric Akroskeletic Skeletic Cambisol
+143,CMskkkeu,Eutric Akroskeletic Skeletic Cambisol
+144,CMvr,Vertic Cambisol
+145,CMvrkk,Akroskeletic Vertic Cambisol
+146,CMvrsk,Skeletic Vertic Cambisol
+147,CMyeca,Calcaric Yermic Cambisol
+148,CR,Cryosol
+149,CRan,Andic Cryosol
+150,CRanskkk,Akroskeletic Skeletic Andic Cryosol
+151,CRcm,Cambic Crysosol
+152,CRcmkk,Akroskeletic Cambic Cryosol
+153,CRgl,Gleyic Cryosol
+154,CRglkk,Akroskeletic Gleyic Crysol
+155,CRha,Haplic Cryosol
+156,CRkk,Akroskeletic Cryosol
+157,CRle,Leptic Cryosol
+158,CRlecm,Cambic Leptic Cryosol
+159,CRlehi,Histic Leptic Cryosol
+160,CRlesk,Skeletic Leptic Cryosol
+161,CRralesk,Skeletic Leptic Reducaquic Cryosol
+162,CRrt,Retic Cryosol
+163,CRsd,Spodic Cryosol
+164,CRsk,Skeletic Cryosol
+165,CRsz,Salic Cryosol
+166,DU,Durisol
+167,DUca,Calcaric Durisol
+168,DUcagl,Gleyic Calcaric Durisol
+169,DUlv,Luvic Durisol
+170,DUlx,Lixic Durisol
+171,DUpc,Petrocalcic Durisol
+172,DUvr,Vertic Durisol
+173,FL,Fluvisol
+174,FLca,Calcaric Fluvisol
+175,FLcakk,Akroskeletic Calcaric Fluvisol
+176,FLcaqs,Protosodic Calcaric  Fluvisol
+177,FLdy,Dystric Fluvisol
+178,FLeu,Eutric Fluvisol
+179,FLeuqs,Protosodic Eutric Fluvisol
+180,FLkkca,Calcaric Akroskeletic Fluvisol
+181,FLkkca,Calcaric Skeletic Fluvisol
+182,FLkkca,Calcaric Akroskeletic Fluvisol
+183,FLkkeu,Eutric Akroskeletic Fluvisol
+184,FLleca,Calcaric Leptic Fluvisol
+185,FLleeu,Eutric Leptic Fluvisol
+186,FLleskca,Calcaric Skeletic Leptic Fluvisol
+187,FLskca,Calcaric Skeletic Fluvisol
+188,FLskdy,Dystric Skeletic Fluvisol
+189,FLskeu,Eutric Skeletic Fluvisol
+190,FLskkkdy,Dystric Akroskeletic Skeletic Fluvisol
+191,FLskkkeu,Eutric Akroskeletic Skeletic Fluvisol
+192,FR,Ferralsol
+193,FRgr,Geric Ferralsol
+194,FRha,Haplic Ferralsol
+195,FRkk,Akroskeletic Ferralsol
+196,FRro,Rhodic Ferralsol
+197,FRrokk,Akroskeletic Rhodic Ferralsol
+198,FRsk,Skeletic Ferralsol
+199,FRum,Umbric Ferralsol
+200,FRxa,Xanthic Ferralsol
+201,FRxakk,Akroskeletic Xanthic Ferralsol
+202,FRxask,Skeletic Xanthic Ferralsol
+203,GG,Glaciers
+204,GL,Gleysol
+205,GLan,Andic Gleysol
+206,GLar,Arenic Gleysol
+207,GLcc,Calcic Gleysol
+208,GLcckk,Akroskeletic Calcic Gleysol
+209,GLccqs,Protosodic Calcic Gleysol
+210,GLdy,Dystric Gleysol
+211,GLdykk,Akroskeletic Dystric Gleysol
+212,GLeu,Eutric Gleysol
+213,GLeukk,Akroskeletic Eutric Gleysol
+214,GLeuqs,Protosodic Eutric Gleysol
+215,GLeuskkk,Akroskeletic Skeletic Eutric Gleysol
+216,GLircc,Irragric Calcic Gleysol
+217,GLireu,Irragric Eutric Gleysol
+218,GLirsf,Sulfidic Irragric Gleysol
+219,GLlv,Luvic Gypsisol
+220,GLmo,Mollic Gleysol
+221,GLmokk,Akroskeletic Mollic Gleysol
+222,GLsf,Sulfidic Gleysol
+223,GLti,Thionic Gleysol
+224,GLum,Umbric Gleysol
+225,GLumkk,Akroskeletic Umbric Gleysol
+226,GY,Gypsisol
+227,GYcc,Calcic Gypsisol
+228,GYha,Haplic Gypsisol
+229,GYkk,Akroskeletic Gypsisol
+230,GYkkcc,Calcic Akroskeletic Gypsisol
+231,GYle,Leptic Gyspsisol
+232,GYlelv,Luvic Leptic Gypsisols
+233,GYlelvkk,Akroskeletic Luvic Leptic  Gypsisol
+234,GYlvye,Yermic Luvic Gypsisol
+235,GYpt,Petric Gypsisol
+236,GYptkk,Akroskeletic Petric Gypsisol
+237,Gyptle,Leptic Petric Gypsisol
+238,GYptye,Yermic Petric Gypsisol
+239,GYsk,Skeletic Gypsisol
+240,GYskcc,Calcic Skeletic Gypsisol
+241,GYye,Yermic Gypsisol
+242,GYyecc,Calcic Yermic Gypsiol
+243,HS,Histosol
+244,HScr,Cryic Histosol
+245,HSfi,Fibric Histosol
+246,HSfikk,Akroskeletic Fibric Histosol
+247,HSfile,Leptic Fibric Histosol
+248,HSfo,Folic Histosol
+249,HSkk,Akroskeletic Histosol
+250,HSsa,Sapric Histosol
+251,HSsask,Skeletic Sapric Histosol
+252,HSti,Thionic Histosol
+253,KS,Kastanozem
+254,KScc,Calcic Kastanozem
+255,KScckk,Akroskeletic Calcic Kastanozem
+256,KSccqs,Protosodic Calcic Kastanozem
+257,KSccsk,Skeletic Calcic Kastanozem
+258,KSgy,Gypsic Kastanozem
+259,KSha,Haplic Kastanozem
+260,KSkk,Akroskeletic Kastanozem
+261,KSle,Leptic Kastanozem
+262,KSlecc,Calcic Leptic Kastanozem
+263,KSlelv,Luvic Leptic Kastanozem
+264,KSlv,Luvic Kastanozem
+265,KSlvkk,Akroskeletic Luvic Kastanozem
+266,KSlvsk,Skeletic Luvic Kastanozem
+267,KSlvye,Yermic Luvic Kastanozem
+268,KSsk,Skeletic Kastanozem
+269,KSye,Yermic Kastanozem
+270,LP,Leptosol
+271,LPdy,Dystric Leptosol
+272,LPeu,Eutric Leptosol
+273,LPkk,Akroskeletic Leptosol
+274,LPkkdy,Dystric Akroskeletic Leptosol
+275,LPkkeu,Eutric Akroskeletic Leptosol
+276,LPkkmo,Mollic Akroskeletic Leptosol
+277,LPkkrz,Rendzic Akroskeletic Leptosol
+278,LPkksk,Skeletic Akroskeletic Leptosol
+279,LPkkum,Umbric Akroskeletic Leptosol
+280,LPli,Lithic Leptosol
+281,LPlikk,Akroskeletic Lithic Leptosol
+282,LPliqs,Protosodic Lithic Leptosol
+283,LPlisk,Skeletic Lithic Leptosol
+284,LPmo,Mollic Leptosol
+285,LPmoqs,Protosodic Mollic Leptosol
+286,LPmosk,Skeletic Mollic Leptosol
+287,LPnt,Nudilithic Leptosol
+288,LPntkk,Akroskeletic Nudilithic Leptosol
+289,LPrz,Rendzic Leptosol
+290,LPrzqs,Protosodic Rendzic Leptosol
+291,LPrzsk,Skeletic Rendzic Leptosol
+292,LPrzskkk,Akroskeletic Skeletic Rendzic Leptosol
+293,LPskdy,Dystric Skeletic Leptosol
+294,LPskeu,Eutric Skeletic Leptosol
+295,LPskkkdy,Dystric Akroskeletic Skeletic Leptosol
+296,LPskkkum,Umbric Akroskeletic Skeletic Leptosol
+297,LPskrz,Rendzic Skeletic Leptosol
+298,LPskum,Umbric Skeletic  Leptosol
+299,LPum,Umbric Leptosol
+300,LV,Luvisol
+301,LVab,Albic Luvisol
+302,LVabkk,Akroskeletic Albic Luvisol
+303,Lvabsk,Skeletic Albic Luvisol
+304,LVcc,Calcic Luvisol
+305,LVcckk,Akroskeletic Calcic Luvisol
+306,LVccskkk,Akroskeletic Skeletic Calcic Luvisol
+307,LVcr,Chromic Luvisol
+308,LVcrkk,Akroskeletic Chromc Luvisol
+309,LVcrsk,Skeletic Chromic Luvisol
+310,LVcrskkk,Akroskeletic Skeletic Chromic Luvisol
+311,LVfg,Fragic Luvisol
+312,LVfggl,Gleyic Fragic Luvisol
+313,LVfgsk,Skeletic Fragic Luvisol
+314,LVfr,Ferric Luvisol
+315,LVfrkk,Akroskeletic Ferric Luvisol
+316,LVfrsk,Skeletic Ferric Luvisol
+317,LVgl,Gleyic Luvisol
+318,LVglkk,Akroskeletic Gleyic Luvisol
+319,LVglsk,Skeletic Gleyic Luvisol
+320,LVglskkk,Akroskeletic Skeletic Gleyic Luvisol
+321,LVha,Haplic Luvisol
+322,LVkk,Akroskeletic Luvisol
+323,LVkkcc,Calcic Akroskeletic Luvisol
+324,LVle,Leptic Luvisol
+325,LVleab,Albic Leptic Luvisol
+326,LVlecc,Calcic Leptic Luvisol
+327,LVlecr,Chromic Leptic luvisol
+328,LVlecrkk,Akroskeletic Chromic Leptic Luvisol
+329,LVlecrsk,Skeletic Chromic Leptic Luvisol
+330,LVlefr,Ferric Leptic Luvisol
+331,LVlefrsk,Skeletic Ferric Leptic Luvisol
+332,LVlekk,Akroskeletic Leptic Luvisol
+333,Lvlesk,Skeletic Leptic Luvisol
+334,LVlevr,Vertic Leptic Luvisol
+335,LVsk,Skeletic Luvisol
+336,LVskcc,Calcic Skeletic Luvisol
+337,LVskkk,Akroskeletic Skeletic Luvisol
+338,LVvr,Vertic Luvisol
+339,LX,Lixisol
+340,LXab,Albic Lixisol
+341,LXfr,Ferric Lixisol
+342,LXfrkk,Akroskeletic Ferric Luvisol
+343,LXfrsk,Skeletic Ferric Lixisol
+344,LXgl,Gleyic Lixisol
+345,LXha,Haplic Lixisol
+346,LXkk,Akroskeletic Lixisol
+347,LXle,Leptic Lixisol
+348,LXlefr,Ferric Leptic Lixisol
+349,LXsk,Skeletic Lixisol
+350,NT,Nitisol
+351,NTha,Haplic Nitisol
+352,NThu,Humic Nitisol
+353,NThukk,Akroskeletic Humic Nitisol
+354,NThusk,Skeletic Humic Nitisol
+355,NTkk,Akroskeletic Nitisol
+356,NTle,Leptic Nitisol
+357,NTlehu,Humic Leptic Nitisol
+358,NTlero,Rhodic Leptic Nitisol
+359,NTro,Rhodic Nitisol
+360,NTrokk,Akroskeletic Rhodic Nitisol
+361,PH,Phaeozem
+362,PHca,Calcaric Phaeozem
+363,PHgl,Gleyic Phaeozem
+364,PHgr,Greyzemic Phaeozem
+365,PHgrgl,Gleyic Greyzemic Phaeozem
+366,PHgzkk,Akroskeletic Greyzemic Phaeozem
+367,PHha,Haplic Phaeozem
+368,PHkk,Akroskeletic Phaeozem
+369,PHle,Leptic Phaeozem
+370,PHleca,Calcaric Leptic Phaeozem
+371,PHlekk,Akroskeletic Leptic Phaeozem
+372,PHlelv,Luvic Leptic Phaeozem
+373,PHlv,Luvic Phaeozem
+374,PHlvkk,Akroskeletic Luvic Phaeozem
+375,PHlvskkk,Akroskeletic Skeletic Luvic Phaeozem
+376,PL,Planosol
+377,PLdy,Dystric Planosol
+378,PLeu,Eutric Planosol
+379,PLfgdy,Dystric Fragic Planosol
+380,PLfgeu,Eutric Fragic Planosol
+381,PLkkdy,Dystric Akroskeletic Planosol
+382,PLkkeu,Eutric Akroskeletic Planosol
+383,PLmo,Mollic Planosol
+384,PLskdy,Dystric Skeletic Planosol
+385,PLskeu,Eutric Skeletic Planosol
+386,PLum,Umbric Planosol
+387,PT,Plinthosol
+388,PTab,Albic Plinthosol
+389,PTabkk,Akroskeletic Albic Plinthosol
+390,PTac,Acric Plinthosol
+391,PTal,Alic Plinthosol
+392,PTdy,Dystric Plinthosol
+393,PTeu,Eutric Plinthosol
+394,PTfl,Ferralic Plinthosol
+395,PTflsk,Skeletic Ferralic Plinthosol
+396,PTgr,Geric Plinthosol
+397,PTha,Haplic Plinthosol
+398,PTir,Irragric Plinthosol
+399,PTkk,Akroskeletic Plinthosol
+400,PTkkeu,Eutric Akroskeletic Plinthosol
+401,PTli,Lithic Plinthosol
+402,PTlx,Lixic Plinthosol
+403,PTni,Nitic Plinthosol
+404,PTro,Rhodic Plinthosl
+405,PTsk,Skeletic Plinthosol
+406,PTskdy,Dystric Skeletic Plinthosol
+407,PTskeu,Eutric Skeletic Plinthosol
+408,PTum,Umbric Plinthosol
+409,PTumkk,Skeletic Umbric Plinthosol
+410,PZ,Podzol
+411,PZal,Albic Podzol
+412,PZalfg,Gleyic Albic Podzol
+413,PZalkk,Akroskeletic Albic Podzol
+414,PZalle,Leptic Albic Podzol
+415,PZallekk,Akroskeletic Leptic Albic Podzol
+416,PZallesk,Skeletic Leptic Albic Podzol
+417,PZalsk,Skeletic Albic Podzol
+418,PZalskkk,Akroskeletic Skeletic Albic Podzol
+419,PZcb,Carbic Podzol
+420,PZet,Entic Podzol
+421,PZetkk,Akroskeletic Entic Podzol
+422,PZetle,Leptic Entic Podzol
+423,PZetlesk,Skeletic Leptic Entic Podzol
+424,PZetsk,Skeletic Entic Podzol
+425,PZetskkk,Akroskeletic Skeletic Entic Podzol
+426,PZgl,Gleyic Podzol
+427,PZglkk,Akroskeletic Gleyic Podzol
+428,PZglsk,Skeletic Gleyic Podzol
+429,PZleglsk,Skeletic Gleyic Leptic Podzol
+430,PZrs,Rustic Podzol
+431,PZrsle,Leptic Rustic Podzol
+432,PZrssk,Skeletic Rustic Podzol
+433,RG,Regosol
+434,RGca,Calcaric Regosol
+435,RGcakk,Skeletic Calcaric Regosol
+436,RGdy,Dystric Regosol
+437,RGeu,Eutric Regosol
+438,RGgp,Gypsiric Regosol
+439,RGkk,Akroskeletic Regosol
+440,RGkkca,Calcaric Akroskeletic Regosol
+441,RGkkdy,Dystric Akroskeletic Regosol
+442,RGkkeu,Eutric Akroskeletic Regosol
+443,RGleca,Calcaric Leptic Regosol
+444,RGledy,Dystric Leptic Regosol
+445,RGleeu,Eutric Leptic Regosol
+446,RGlekkeu,Eutric Akroskeletic Leptic Regosol
+447,RGleskeu,Eutric Skeletic Leptic Regosol
+448,RGlpca,Calcaric Leptic Regosol
+449,RGskca,Calcaric Skeletic Regosol
+450,RGskdy,Dystric Skeletic Regosol
+451,RGskeu,Eutric Skeletic Regosol
+452,RT,Retisol
+453,RTdy,Dystric Retisol
+454,RTeu,Eutric Retisol
+455,RTfggl,Gleyic Fragic Retisol
+456,RTgl,Gleyic Retisol
+457,RTglkk,Akroskeletic Gleyic Retisol
+458,RTkkdy,Dystric Akroskeletic Retisol
+459,RTkkeu,Eutric Akroskeletic Retisol
+460,RTleeu,Eutric Leptic Retisol
+461,RTskdy,Dystric Skeletic Retisol
+462,SC,Solonchak
+463,SCcc,Calcic Solonchak
+464,SCcckk,Akroskeletic Calcic Solonchak
+465,SCccle,Leptic Calcic Solonchak
+466,SCccqs,Protosodic Calcic Solonchak
+467,SCccsk,Skeletic Calcic Solonchak
+468,SCccso,Sodic Calcic Solonchak
+469,SCccsokk,Akroskeletic Sodic Calcic Solonchak
+470,SCccye,Yermic Calcic Solonchak
+471,SCfv,Fluvic Solonchak
+472,SCfvqs,Protosodic Fluvic Solonchak
+473,SCgl,Gleyic Solonchak
+474,SCgl,Gleyic Solonchak
+475,SCglkk,Akroskeletic Gleyic Solonchak
+476,SCglle,Leptic Gleyic Solonchak
+477,SCgy,Gypsic Solonchak
+478,SCgyye,Yermic Gypsic Solonchak
+479,SCha,Haplic Solonchak
+480,SCjz,Hypersalic Solonchak
+481,SCkk,Akroskeletic Solonchak
+482,SCle,Leptic Solonchak
+483,SCleglkk,Akroskeletic Gleyic Leptic Solonchak
+484,SCmo,Mollic Solonchak
+485,SCsk,Skeletic Solonchak
+486,SCso,Sodic Solonchak
+487,SCsole,Leptic Sodic Solonchak
+488,SN,Solonetz
+489,SNca,Calcaric Solonetz
+490,SNcask,Skeletic Calcaric Solonetz
+491,SNcc,Calcic Solonetz
+492,SNcckk,Akroskeletic Calcic Solonetz
+493,SNducc,Calcic Duric Solonetz
+494,SNgl,Gleyic Solonetz
+495,SNglkk,Akroskeletic Gleyic Solonetz
+496,SNgy,Gypsic Solonetz
+497,SNha,Haplic Solonetz
+498,SNhask,Skeletic Solonetz
+499,SNkk,Akroskeletic Solonetz
+500,SNmo,Mollic Solonetz
+501,SNmokk,Akroskeletic Mollic Solonetz
+502,SNskcc,Calcic Skeletic Solonetz
+503,SNst,Stagnic Solonetz
+504,SNstdu,Duric Stagnic Solonetz
+505,SNstkk,Akroskeletic Stagnic Solonetz
+506,STal,Alic Stagnosol
+507,STlelv,Luvic Leptic Stagnosol
+508,STlv,Luvic Stagnosol
+509,STlvsk,Skeletic Luvic Stagnosol
+510,STlx,Lixic Stagnosol
+511,STmo,Mollic Stagnosol
+512,STrt,Retic Stagnosol
+513,TC,Technosol
+514,UMac,Acric Umbrisol
+515,UMackk,Akroskeletic Acric Umbrisol
+516,UMal,Alic Umbrisol
+517,UMalkk,Akroskeletic Alic Umbrisol
+518,UMcm,Cambic Umbrisol
+519,UMcmkk,Akroskeletic Cambic Umbrisol
+520,UMcmsk,Skeletic Cambic Umbrisol
+521,UMcmskkk,Akroskeletic Skeletic Cambic Umbrisol
+522,UMfv,Fluvic Umbrisol
+523,UMfvkk,Akroskeletic Fluvic Umbrisol
+524,UMha,Haplic Umbrisol
+525,UMleac,Acric Leptic Umbrisol
+526,UMleal,Alic Leptic Umbrisol
+527,UMlecm,Cambic Leptic Umbrisol
+528,UMlecmsk,Skeletic Cambic Leptic Umbrisol
+529,UMlefgcm,Cambic Fragic Leptic Umbrisol
+530,UMlekkcm,Cambic Akroskeletic Leptic Umbrisol
+531,VR,Vertisol
+532,VRcc,Calcic Vertisol
+533,VRcckk,Akroskeletic Calcic Vertisols
+534,VRccqs,Protosodic Calcic Vertisols
+535,VRccta,Takyric Calcic Vertisol
+536,VReu,Eutric Vertisol
+537,VRgy,Gypsic Vertisol
+538,VRha,Haplic Vertisol
+539,VRkk,Akroskeletic Vertisol
+540,VRle,Leptic Vertisol
+541,VRlecc,Calcic Leptic Vertisol
+542,VRsk,Skeletic Vertisol
+543,ND,No Data
+544,WR,Inland open water
+545,IS,Small Islands
+546,CRlp,Leptic Cryosol
+547,CRra,Reducqauic Cryosol
+548,PHfv,Fluvic Phaeozem
+549,PHgz,Greyzemic phaeozem
+550,HScrli,Lithic Cryic Histosol
+551,CRarsk,Skeletic Reducaquic Cryosol 
+552,GYlelv,Luvic Leptic Gypsisol
+553,GYlelvkk,Akroskeletic Luvic Leptic Gyspsisol
+554,GYlv,Luvic Gypsisol
+555,HScrle,Leptic Cryic Histosol
+556,UMleskcm,Cambic Skeletic Leptic Umbrisol

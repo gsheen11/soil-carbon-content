@@ -1,0 +1,192 @@
+0,1,2
+1, Acrisols,AC
+2,Ferric Acrisols,ACfr
+3,Gleyic Acrisols,ACgl
+4,Haplic Acrisols,ACha
+5,Haplic Plinthosols,PTha
+6,Acric Umbrisols,UMac
+7,Alisols,AL
+8,Ferric Alisols,ALfr
+9,Gleyic Alisols,ALgl
+10,Haplic Alisols,ALha
+11,Haplic Plinthosols,PTha
+12,Alic Stagnosols,STal
+13,Alic Umbrisols,UMal
+14,Andosols,ANdy
+15,Gleyic Andosols,ANgl
+16, Andosols,AN
+17,Andic Cryosols,CRan
+18,Mollic  Andosols,ANmo
+19,Umbric Andosols,ANum
+20,Vitric Andosols,ANvi
+21, Anthrosols,AT
+22,Anthrosols,AT
+23,Hydric Anthrosols,AThy
+24,Hortic Anthrosols,ATht
+25,Technosols,TC
+26, Arenosols,AR
+27,Claric Arenosols,ARcq
+28,Brunic Arenosols,ARbr
+29,Calcaric Arenosols,ARca
+30,Arenic Gleysols,GLar
+31,Arenosols,AR
+32,Protoargic Arenosols,ARqg
+33,Sideralic Arenosols,ARse
+34,Chernozems,CH
+35,Gleyic Chernozems,CHgl
+36,Haplic Chernozems,CHha
+37,Calcic Chernozems,CHcc
+38,Luvic Chernozems,CHlv
+39,Tonguic Chernozems,CHto
+40,Haplic Calcisols,CLha
+41,Luvic Calcisols,CLlv
+42,Petric Calcisols,CLpt
+43, Cambisols,CM
+44,Calcaric Cambisols,CMca
+45,Dystric Cambisols,CMdy
+46,Eutric Cambisols,CMeu
+47,Gleyic Cambisols,CMgl
+48,Cambic Cryosols,CRcm
+49,Ferralic Cambisols,CMfl
+50,Cambic Umbrisols,UMcm
+51,Vertic Cambisols,CMvr
+52,Chromic Cambisols,CMcr
+53,Fluvisols,FL
+54,Calcaric Fluvisols,FLca
+55,Dystric Fluvisols,FLdy
+56,Eutric Fluvisols,FLeu
+57,Fluvic Phaeozems,PHfv
+58,Fluvic Solonchaks,SCfv
+59,Thionic Gleysols,GLti
+60,Fluvic Umbrisols,UMfv
+61, Ferrasols,FR
+62,Geric Ferralsols,FRgr
+63,Haplic Ferrasols,FRha
+64,Geric Plinthosols,PTgr
+65,Rhodic Ferrasols,FRro
+66,Umbric Ferrasols,FRum
+67,Xanthic  Ferrasols,FRxa
+68, Gleysols,GL
+69,Andic Gleysols,GLan
+70,Dystric Gleysols,GLdy
+71,Eutric Gleysols,GLeu
+72,Gleyic Cryosols,CRra
+73,Calcic Gleysols,GLcc
+74,Mollic Gleysols,GLmo
+75,Sulfidic Gleysols,GLsf
+76,Umbric Gleysols,GLum
+77,Greyzemic Phaeozems,PHgz
+78,Greyzemic Gleyic Phaeozems,PHglgz
+79,Greyzemic Phaeozems,PHgz
+80, Gypsisols,GY
+81,Haplic Gypsisols,GYha
+82,Calcic Gypsisols,GYcc
+83,Luvic Gypsisols,GYlv
+84,Petric Gypsisols,GYpt
+85,Histosols,HS
+86,Fibric Histosols,HSfi
+87,Cryic Histosols,HScr
+88,Folic Histosols,HSfo
+89,Sapric Histosols,HSsa
+90,Thionic Histosols,HSti
+91,Kastanozems,KS
+92,Haplic Kastanozems,KSha
+93,Calcic Kastanozems,KScc
+94,Luvic Kastanozems,KSlv
+95,Gypsic Kastanozems,KSgy
+96,Leptosols,LP
+97,Dystric Leptosols,LPdy
+98,Eutric Leptosols,LPeu
+99,Leptic Cryosols,CRlp
+100,Rendzic Leptosols,LPrz
+101,Mollic Leptosols,LPmo
+102,Lithic Leptosols,LPli
+103,Umbric Leptosols,LPum
+104, Luvisols,LV
+105,Albic Luvisols,LVab
+106,Ferric Luvisols,LVfr
+107,Gleyic Luvisols,LVgl
+108,Haplic Luvisols,LVha
+109,Luvic Stagnosols,STlv
+110,Calcic Luvisols,LVcc
+111,Vertic Luvisols,LVvr
+112,Chromic Luvisols,LVcr
+113, Lixisols,LX
+114,Albic Lixisols,LXab
+115,Ferric Lixisols,LXfr
+116,Gleyic Lixisols,LXgl
+117,Haplic Lixisols,LXha
+118,Lixic Stagnosols,STlx
+119,Lixic Plinthosols,PTlx
+120, Nitisols,NT
+121,Rhodic Nitisols,NTro
+122,Humic Nitisols,NThu
+123, Phaeozems,PH
+124,Calcaric Phaeozems,PHca
+125,Gleyic Phaeozems,PHgl
+126,Haplic Phaeozems,PHha
+127,Mollic Stagnosols,STmo
+128,Luvic Phaeozems,PHlv
+129,Planosols,PL
+130,Dystric Planosols,PLdy
+131,Eutric Planosols,PLeu
+132,Abruptic Cryosols,CRap
+133,Mollic Planosols,PLmo
+134,Umbric Planosols,PLum
+135,Plinthosols,PT
+136,Albic Plinthosols,PTab
+137,Dystric Plintohsols,PTdy
+138,Eutric Plinthosols,PTeu
+139,Humic Plinthosols,PTum
+140,Podzols,PZ
+141,Entic Podzols,PZet
+142,Carbic Podzols,PZcb
+143,Rustic Podzols,PZrs
+144,Gleyic Podzols,PZgl
+145,Albic Podzols,PZal
+146,Spodic Cryosols,CRsd
+147,Retisols,RT
+148,Dystric Retisols,RTdy
+149,Eutric Retisols,RTeu
+150,Gleyic Retisols,RTgl
+151,Retic Cryosols,CRrt
+152,Retic Stagnosols,STrt
+153,Regosols,RG
+154,Calcaric Regosols,RGca
+155,Dystric Regosols,RGdy
+156,Eutric Regosols,RGeu
+157,Haplic Cryosols,CRha
+158,Haplic Umbrisols,UMha
+159,Gypsiric Regosols,RGgp
+160,Solonchaks,SC
+161,Gleyic Solonchaks,SGgl
+162,Haplic Solonchaks,SCha
+163,Salic Cryosols,CRsz
+164,Calcic Solonchaks,SCcc
+165,Mollic Solonchaks,SCmo
+166,Sodic Solonchaks,SCso
+167,Gypsic Solonchaks,SCgy
+168,Solonetz,SN
+169,Gleyic Solonetz,SNgl
+170,Haplic Solonetz,SNha
+171,Stagnic Solonetz,SNst
+172,Calcic Solonetz,SNcc
+173,Mollic Solonetz,SNmo
+174,Gypsic Solonetz,SNgy
+175,Vertisols,VR
+176,Haplic Vertisols,VRha
+177,Haplic Vertisols,VRha
+178,Calcic Vertisols,VRcc
+179,Gypsic Vertisols,VRgy
+180,Calcisols ,CL
+181, Nitisols,NT
+182,Protic Arenosols,ARpr 
+183, Anthrosols,AT
+184,Glaciers,GG
+185,Anthrosols,AT
+186,Small Islands,IS
+187,Nudilithic Leptosols,LPnt
+188,Hypersalic Solonchaks,SCjz
+189,Technosols,TC
+190,Open Water,WR
+191,No Data,ND

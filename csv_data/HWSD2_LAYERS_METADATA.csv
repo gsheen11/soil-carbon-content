@@ -1,0 +1,48 @@
+0,1,2,3,4,5
+1,ID,,Database Internal ID,Number,
+2,HWSD2_SMU_ID,,Soil Mapping Unit HWSD2,Number,
+3,WISE30s_SMU_ID,,Soil Mapping Unit WISE30s,String,
+4,HWSD1_SMU_ID,,Soil Mapping Unit HWSD1,Number,
+5,COVERAGE,,Coverage,Number,D_COVERAGE
+6,SEQUENCE,,Sequence in Soil Mapping Unit,Number,
+7,SHARE,%,Share in Soil Mapping Unit,Number,
+8,NSC_MU_SOURCE1,,National Soil Classification,String,
+9,NSC_MU_SOURCE2,,National Soil Classification,String,
+10,WRB_PHASES,Class,Soil Unit Symbol (WRB 2022),String,D_WRB_PHASES
+11,WRB4,Class,Soil Unit Symbol (WRB 2022 - 4 digit),String,D_WRB4
+12,WRB2,Class,Soil Unit Symbol (WRB 2022 - 2 digit),String,D_WRB2
+13,FAO90,Class,Soil Unit Symbol (FAO 1990),String,D_FAO90
+14,ROOT_DEPTH,Class,Rootable Soil Depth,Number,D_ROOT_DEPTH
+15,PHASE1,,PHASE1,Number,D_PHASE
+16,PHASE2,,PHASE2,Number,D_PHASE
+17,ROOTS,cm,Obstacle to Roots (ESDB),Number,D_ROOTS
+18,IL,cm,Impermeable Layer  (ESDB),Number,D_IL
+19,SWR,Class,Soil Water Regime (ESDB),Number,D_SWR
+20,DRAINAGE,Class, Reference Soil Drainage,Number,D_DRAINAGE
+21,AWC ,mm,AWC for Rootable Soil Depth,,
+22,ADD_PROP,Class,Additional Properties,Number,D_ADD_PROP
+23,LAYER,,Depth Layer (from D1 to D7),String,
+24,TOPDEP,cm,Depth of top of layer,Number,
+25,BOTDEP,cm,Depth of bottom of layer,Number,
+26,COARSE,% volume,Coarse fragments,Number,
+27,SAND,% weight,Sand,Number,
+28,SILT,% weight,Silt,Number,
+29,CLAY,% weight,Clay,Number,
+30,TEXTURE_USDA,,Texture class (USDA conventions),Number,D_TEXTURE_USDA
+31,TEXTURE_SOTER,,Texture class (SOTER conventions),String,D_TEXTURE_SOTER
+32,BULK,g/cm3,Bulk Density,Number,
+33,REF_BULK,g/cm3,Reference Bulk Density,Number,
+34,ORG_CARBON,% weight,Organic Carbon Content,String,
+35,PH_WATER,-log(H+),pH in water,Number,
+36,TOTAL_N,g/kg,Total nitrogen content,Number,
+37,CN_RATIO,,Carbon/Nitrogen ratio (C/N),Number,
+38,CEC_SOIL,cmolc/kg,CEC soil,Number,
+39,CEC_CLAY,cmolc/kg,CEC clay,Number,
+40,CEC_EFF,cmolc/kg,ECEC,Number,
+41,TEB,cmolc/kg,TEB,Number,
+42,BSAT,%  CECsoil,Base Saturation,Number,
+43,ALUM_SAT,%  ECEC,Aluminium saturation,Number,
+44,ESP,%,Exchangeable Sodium Percentage,Number,
+45,TCARBON_EQ,% weight,Calcium Carbonate,Number,
+46,GYPSUM,% weight,Gypsum content,Number,
+47,ELEC_COND,dS/m,Electric Conductivity,Number,
