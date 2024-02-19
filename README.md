@@ -1,6 +1,6 @@
-## Predicting Soil Carbon Content to Inform Preservation
+# Predicting Soil Carbon Content to Inform Preservation
 
-# Motivation
+## Motivation
 
 Soil is one of the largest carbon reservoirs on Earth, containing approximately 75% of the carbon stored on land — three times more than the amount stored in living plants and animals. Soils perform carbon sequestration, the long term storage of carbon dioxide, which plays a significant role in maintaining a balanced and harmonious global carbon cycle.
 
@@ -10,7 +10,7 @@ As a result, it is paramount for us to understand which areas of soil store the 
 
 Our project is an ML model that predicts SOC from other soil parameters in order to inform soil preservation. We intend for our model to be flexible to predict SOC based on any number of given parameters. 
 
-# Methods
+## Methods
 
 We are training our model on the Harmonized World Soil Database, which is the world’s most comprehensive collection of soil data. It aggregates information across seven source databases and standardizes them across 20+ soil properties. 
 
