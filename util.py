@@ -30,16 +30,19 @@ from sklearn.preprocessing import OneHotEncoder
 def pre_process_data(df):
     float_features = df[["SAND", "SILT"]].astype(float)
 
-    y = df[["ORG_CARBON"]].astype(float).values
+    y = df["ORG_CARBON"].astype(float).values
     
     # categorical_feature = df[[""]]
     # encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')  # Initialize encoder, sparse=False returns a 2D array
     # one_hot_encoded_feature = encoder.fit_transform(categorical_feature)
     
-    # preprocessed_features = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
+    # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
     x =  np.concatenate([float_features])
+
+    x_filtered = x[~np.isnan(y)]
+    y_filtered = y[~np.isnan(y)]
     
-    return x, y
+    return x_filtered, y_filtered
 
 
 def load_training_data():
@@ -55,7 +58,7 @@ def load_test_data():
 
 def main():
     x, y = load_training_data()
-    
+
 
 
 if __name__ == "__main__":
