@@ -9,13 +9,8 @@ def get_proportion_populated_columns(csv_file):
         num_columns = len(header)
         column_array = np.zeros(num_columns)
         num_rows = 0
-        # test_set = set()
         for row in reader:
             num_rows += 1
-            # if row[2] in test_set:
-            #     print(row[2])
-            # else:
-            #     test_set.add(row[2])
             for i in range(num_columns):
                 if row[i] != "":
                     column_array[i] += 1
@@ -46,7 +41,7 @@ def gen_cooccurence_matrix(csv_file):
 
 
 # Usage example
-data_csv = "csv_data/HWSD2_LAYERS.csv"
+data_csv = "csv_data/HWSD2_LAYERS_CLEANED.csv"
 proportion = get_proportion_populated_columns(data_csv)
 
 with open("csv_data/HWSD2_LAYERS_METADATA.csv", "r") as file:
@@ -56,12 +51,12 @@ with open("csv_data/HWSD2_LAYERS_METADATA.csv", "r") as file:
     row_num = 0
     for row in reader:
         row_num += 1
+        if row_num <= 9:
+            continue
         print(
-            f"Col #{row[0]}, {row[3]} proportion populated: {proportion[row_num] * 100:.2f}%"
+            f"Col #{row[0]}, {row[3]} proportion populated: {proportion[row_num - 9] * 100:.2f}%"
         )
 
-cooccurance_matrix = gen_cooccurence_matrix(data_csv)
-np.save("cooccurance_matrix.npy", cooccurance_matrix)
-print("cooccurance_matrix.npy saved")
-
-# print(f"The proportion of populated columns is: {proportion}")
+# cooccurance_matrix = gen_cooccurence_matrix(data_csv)
+# np.save("cooccurance_matrix.npy", cooccurance_matrix)
+# print("cooccurance_matrix.npy saved")
