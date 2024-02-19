@@ -19,7 +19,7 @@
 18,IL,cm,Impermeable Layer  (ESDB),Number,D_IL
 19,SWR,Class,Soil Water Regime (ESDB),Number,D_SWR
 20,DRAINAGE,Class, Reference Soil Drainage,Number,D_DRAINAGE
-21,AWC ,mm,AWC for Rootable Soil Depth,,
+21,AWC ,mm,AWC for Rootable Soil Depth,Number,
 22,ADD_PROP,Class,Additional Properties,Number,D_ADD_PROP
 23,LAYER,,Depth Layer (from D1 to D7),String,
 24,TOPDEP,cm,Depth of top of layer,Number,
