@@ -114,7 +114,7 @@ def pre_process_categorical_feature(df):
 
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
-    float_features = df[["SAND", "SILT"]].astype(float)
+    float_features = df[["CN_RATIO", "TOTAL_N"]].astype(float)
 
     y = df["ORG_CARBON"].astype(float).values
 
