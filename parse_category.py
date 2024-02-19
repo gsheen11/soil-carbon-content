@@ -25,5 +25,6 @@ with open("csv_data/D_WRB2.csv", "r") as file:
 mapping_11[""] = ""
 df["12"] = df["12"].map(mapping_11)
 
+
 # Write the filtered data to a new CSV file
 df.to_csv("csv_data/HWSD2_LAYERS_CATEGORIZED.csv", index=False)
