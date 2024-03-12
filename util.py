@@ -1,23 +1,30 @@
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
+import csv
 
-
+def get_labels():
 # def load_dataset():
 #     data_type_to_np_dtype = {
 #         "String": str,
 #         "Number": float
 #     }
 
-#     labels = [("Row Number", "ROW_NUM", "Number", float)]
-#     with open('../csv_data/HWSD2_LAYERS_METADATA.csv', 'r') as file:
-#         for line in file.readlines()[1:]:
-#             values = line.strip().split(',')
-#             slug = values[1]
-#             name = values[3]
-#             data_type = values[4]
-#             np_dtype = data_type_to_np_dtype[data_type]
-#             labels += [(name, slug, data_type, np_dtype)]
+    labels = []
+    with open('csv_data/HWSD2_LAYERS_METADATA.csv', 'r') as file:
+        for line in file.readlines()[1:]:
+            values = line.strip().split(',')
+            slug = values[1]
+            name = values[3]
+            # data_type = values[4]
+            # np_dtype = data_type_to_np_dtype[data_type]
+            # labels += [(name, slug, data_type, np_dtype)]
+            labels += [slug]
+            # labels += [name]
+
+    return labels
+
+    
 
 
 #     # Extract labels from the first line, assuming the first row contains headers
@@ -97,12 +104,12 @@ def pre_process_categorical_feature(df):
     temp = pd.read_csv("csv_data/D_DEPTH_LAYER.csv")
     mapping_23 = temp.set_index("1").to_dict()["0"]
     mapping_23[""] = ""
-    df["DEPTH_LAYER"] = df["DEPTH_LAYER"].map(mapping_23)
+    df["LAYER"] = df["LAYER"].map(mapping_23)
 
-    temp = pd.read_csv("csv_data/D_TEXTURE_USDA.csv")
-    mapping_30 = temp.set_index("1").to_dict()["0"]
-    mapping_30[""] = ""
-    df["TEXTURE_USDA"] = df["TEXTURE_USDA"].map(mapping_30)
+    # temp = pd.read_csv("csv_data/D_TEXTURE_USDA.csv")
+    # mapping_30 = temp.set_index("1").to_dict()["0"]
+    # mapping_30[""] = ""
+    # df["TEXTURE_USDA"] = df["TEXTURE_USDA"].map(mapping_30)
 
     temp = pd.read_csv("csv_data/D_TEXTURE_SOTER.csv")
     mapping_31 = temp.set_index("1").to_dict()["0"]
@@ -114,7 +121,10 @@ def pre_process_categorical_feature(df):
 
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
-    float_features = df[["CN_RATIO", "TOTAL_N"]].astype(float)
+
+    features = ["WRB_PHASES","WRB4","WRB2","FAO90","ROOT_DEPTH","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TOPDEP","BOTDEP","COARSE","SAND","SILT","CLAY","TEXTURE_USDA","TEXTURE_SOTER","BULK","REF_BULK","PH_WATER","TOTAL_N","CN_RATIO","CEC_SOIL","CEC_CLAY","CEC_EFF","TEB","BSAT","ALUM_SAT","ESP","TCARBON_EQ","GYPSUM","ELEC_COND"]
+
+    float_features = df[features].astype(float)
 
     y = df["ORG_CARBON"].astype(float).values
 
@@ -125,8 +135,11 @@ def pre_process_data(df):
     # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
     x = np.concatenate([float_features])
 
-    x_filtered = x[~np.isnan(y)]
-    y_filtered = y[~np.isnan(y)]
+    mask = ~np.isnan(y) & (y >= 0)
+
+    x_filtered = x[mask]
+    y_filtered = y[mask]
+
 
     return x_filtered, y_filtered
 

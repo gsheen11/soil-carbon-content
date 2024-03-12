@@ -1,23 +1,25 @@
 import pandas as pd
-from sklearn.model_selection import GroupShuffleSplit
+from sklearn.model_selection import train_test_split
 
 df = pd.read_csv('csv_data/HWSD2_LAYERS.csv')
 
 first_column_name = df.columns[0]
 df = df.drop(first_column_name, axis=1) # dropping row number
 
-header_df = pd.read_csv('csv_data/HWSD2_LAYERS_METADATA.csv')
-headers = header_df['Feature Symbol'].values
-df.columns = headers
+labels = []
+with open('csv_data/HWSD2_LAYERS_METADATA.csv', 'r') as file:
+    for line in file.readlines()[1:]:
+        values = line.strip().split(',')
+        slug = values[1]
+        # name = values[3]
+        # data_type = values[4]
+        # np_dtype = data_type_to_np_dtype[data_type]
+        labels += [slug]
 
-df_filtered = df[(df['ORG_CARBON'] >= 0) & (df['ORG_CARBON'].notna())]
-# values_counts = df_filtered['ORG_CARBON'].value_counts()
+df.columns = labels
 
-# Split the data while keeping soil units together
-gss = GroupShuffleSplit(n_splits=1, train_size=0.8, random_state=42)
-for train_idx, test_idx in gss.split(df_filtered, groups=df_filtered['ORG_CARBON']):
-    train_set = df_filtered.iloc[train_idx]
-    test_set = df_filtered.iloc[test_idx]
+train_set, test_set = train_test_split(df, test_size=0.2, random_state=42)
+
 
 train_set.to_csv('data/train_set.csv', index=False)
 test_set.to_csv('data/test_set.csv', index=False)

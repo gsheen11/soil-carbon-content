@@ -6,24 +6,20 @@
 5,COVERAGE,,Coverage,Category,D_COVERAGE,100,Indicates which source database the soil mapping unit comes from.,FALSE
 6,SEQUENCE,,Sequence in Soil Mapping Unit,Category,,100,The sequence in which soil units within the soil mapping unit are presented (in order of percentage share). The dominant soil has sequence 1. The sequence can range between 1 and 12. ,FALSE
 7,SHARE,%,Share in Soil Mapping Unit,Number,,100,Share of the soil unit within the mapping unit in percentage. ,FALSE
-8,NSC_MU_SOURCE1,,National Soil Classification,Category,,100,"Name/symbol of the national/local soil classification
-system.",FALSE
-9,NSC_MU_SOURCE2,,National Soil Classification,Category,,0,"Name/symbol of the national/local soil classification
-system.",FALSE
+8,NSC_MU_SOURCE1,,National Soil Classification,Category,,100,"Name/symbol of the national/local soil classification system.",FALSE
+9,NSC_MU_SOURCE2,,National Soil Classification,Category,,0,"Name/symbol of the national/local soil classification system.",FALSE
 10,WRB_PHASES,,Soil Unit Symbol (WRB 2022),Category,D_WRB_PHASES,100,The full symbol of the WRB soil name taking into account phases and referring to the Soil Reference Group plus all primary qualifiers,TRUE
-11,WRB4,,Soil Unit Symbol (WRB 2022 - 4 digit),Category,D_WRB4,97.01,"The name of the Soil Reference Group plus the most important
-primary qualifier",TRUE
+11,WRB4,,Soil Unit Symbol (WRB 2022 - 4 digit),Category,D_WRB4,97.01,"The name of the Soil Reference Group plus the most important primary qualifier",TRUE
 12,WRB2,,Soil Unit Symbol (WRB 2022 - 2 digit),Category,D_WRB2,100,The name of the Soil Reference Group,TRUE
 13,FAO90,,Soil Unit Symbol (FAO 1990),Category,D_FAO90,100,The symbol for the soil unit in the FAO90 Revised Legend,TRUE
-14,ROOT_DEPTH,,Rootable Soil Depth,Category,D_ROOT_DEPTH,14.66,"The depth to which plants can exploit the soil for nutrients and
-moisture.",TRUE
+14,ROOT_DEPTH,,Rootable Soil Depth,Category,D_ROOT_DEPTH,14.66,"The depth to which plants can exploit the soil for nutrients and moisture.",TRUE
 15,PHASE1,,PHASE1,Category,D_PHASE,27.59,,TRUE
 16,PHASE2,,PHASE2,Category,D_PHASE,27.16,,TRUE
 17,ROOTS,cm,Obstacle to Roots (ESDB),Category,D_ROOTS,17.23,,TRUE
 18,IL,cm,Impermeable Layer  (ESDB),Category,D_IL,17.23,,TRUE
 19,SWR,,Soil Water Regime (ESDB),Category,D_SWR,42.32,,TRUE
 20,DRAINAGE,, Reference Soil Drainage,Category,D_DRAINAGE,84.6,,TRUE
-21,AWC ,mm,AWC for Rootable Soil Depth,Category,D_AWC,14.29,,TRUE
+21,AWC,mm,AWC for Rootable Soil Depth,Category,D_AWC,14.29,,TRUE
 22,ADD_PROP,,Additional Properties,Category,D_ADD_PROP,98.72,,TRUE
 23,LAYER,,Depth Layer (from D1 to D7),Category,D_DEPTH_LAYER,100,,TRUE
 24,TOPDEP,cm,Depth of top of layer,Number,,100,,TRUE
