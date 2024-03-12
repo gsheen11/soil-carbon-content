@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import GroupShuffleSplit
 
-df = pd.read_csv('csv_data/HWSD2_LAYERS.csv')
+df = pd.read_csv('csv_data/HWSD2_LAYERS.csv', dtype={2: str, 3: str})
 
 first_column_name = df.columns[0]
 df = df.drop(first_column_name, axis=1) # dropping row number
