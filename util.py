@@ -132,6 +132,7 @@ def pre_process_one_hot_encoding(df):
 
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
+    df = pre_process_one_hot_encoding(df)
 
     features = ["WRB_PHASES","WRB4","WRB2","FAO90","ROOT_DEPTH","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TOPDEP","BOTDEP","COARSE","SAND","SILT","CLAY","TEXTURE_USDA","TEXTURE_SOTER","BULK","REF_BULK","PH_WATER","TOTAL_N","CN_RATIO","CEC_SOIL","CEC_CLAY","CEC_EFF","TEB","BSAT","ALUM_SAT","ESP","TCARBON_EQ","GYPSUM","ELEC_COND"]
 
