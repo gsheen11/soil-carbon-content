@@ -119,6 +119,17 @@ def pre_process_categorical_feature(df):
     return df
 
 
+def pre_process_one_hot_encoding(df):
+    categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER"]
+
+    encoder = OneHotEncoder(sparse=False, handle_unknown='ignore').set_output(transform="pandas")  # Initialize encoder, sparse=False returns a 2D array
+
+    categorical_df = df[categorical_features]
+    ohe_df = encoder.fit_transform(categorical_df)
+    df = pd.concat([df, ohe_df], axis=1).drop(columns=categorical_features)
+    return df
+
+
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
 
