@@ -356,7 +356,8 @@ def pre_process_data(df):
         'LAYER_3', 'LAYER_4', 'LAYER_5', 'LAYER_6'
     ]
 
-    float_features = df[features].astype(float)
+    # float_features = df[features].astype(float)
+    float_features = df
 
     y = df["ORG_CARBON"].astype(float).values
 
@@ -365,7 +366,8 @@ def pre_process_data(df):
     # one_hot_encoded_feature = encoder.fit_transform(categorical_feature)
 
     # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
-    x = np.concatenate([float_features])
+    # x = np.concatenate([float_features])
+    x = df[features].astype(float).to_numpy()
 
     mask = ~np.isnan(y) & (y >= 0)
 
