@@ -124,7 +124,7 @@ def pre_process_one_hot_encoding(df):
     categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER"]
     
     categorical_mapping = {
-        "WRB_PHASES": np.arange(1, 557),
+        # "WRB_PHASES": np.arange(1, 557),
         "WRB4": np.arange(1, 192),
         "WRB2": np.arange(1, 36),
         "FAO90": np.arange(1, 186),
@@ -141,10 +141,10 @@ def pre_process_one_hot_encoding(df):
         "TEXTURE_SOTER": ["C", "F", "M", "V", "Z"]
     }
 
-    for feature, range in categorical_mapping.items():
-        # df[feature] = df[feature].astype("category", categories=range)
+    for feature, range_ in categorical_mapping.items():
+        # df[feature] = df[feature].astype("category", categories=range_)
         cat_dtype = CategoricalDtype(
-            categories=range, ordered=True)
+            categories=range_, ordered=True)
         df[feature].astype(cat_dtype)
     ohe_df = pd.get_dummies(df[categorical_features])
     df = pd.concat([df, ohe_df], axis=1).drop(columns=categorical_features)
@@ -154,7 +154,6 @@ def pre_process_one_hot_encoding(df):
     # ohe_df = encoder.fit_transform(categorical_df)
     # df = pd.concat([df, ohe_df], axis=1).drop(columns=categorical_features)
     return df
-
 
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
@@ -357,7 +356,6 @@ def pre_process_data(df):
     ]
 
     # float_features = df[features].astype(float)
-    float_features = df
 
     y = df["ORG_CARBON"].astype(float).values
 
@@ -367,7 +365,9 @@ def pre_process_data(df):
 
     # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
     # x = np.concatenate([float_features])
+    exclude = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
     x = df[features].astype(float).to_numpy()
+    #x = df.drop(columns=exclude).astype(float).to_numpy()
 
     mask = ~np.isnan(y) & (y >= 0)
 

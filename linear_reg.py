@@ -97,16 +97,18 @@ def main():
     X, Y = util.load_training_data()
     X_test, Y_test = util.load_test_data()
 
+    print(X.shape, Y.shape, X_test.shape, Y_test.shape)
 
-    model = FullBatchRegressor(learning_rate=0.01, epochs=2000, lasso_coef=.1)
+
+    model = FullBatchRegressor(learning_rate=0.01, epochs=500, lasso_coef=.1)
     model.fit(X, Y)
-    model.load_weights()
+    # model.load_weights()
 
-    # model.save_weights()
+    model.save_weights()
     y_training_hat = model.predict(X)
     y_testing_hat = model.predict(X_test)
 
-    print(model.weights, model.bias)
+    # print(model.weights, model.bias)
 
     print(np.mean(Y), np.std(Y))
     print(np.mean(Y_test), np.std(Y_test))
