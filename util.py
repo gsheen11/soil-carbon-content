@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from pandas.api.types import CategoricalDtype
 from sklearn.preprocessing import OneHotEncoder
 import csv
 
@@ -121,12 +122,37 @@ def pre_process_categorical_feature(df):
 
 def pre_process_one_hot_encoding(df):
     categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER"]
+    
+    categorical_mapping = {
+        "WRB_PHASES": np.arange(1, 557),
+        "WRB4": np.arange(1, 192),
+        "WRB2": np.arange(1, 36),
+        "FAO90": np.arange(1, 186),
+        "ROOT_DEPTH": np.arange(1, 5),
+        "PHASE1": np.arange(0, 31),
+        "PHASE2": np.arange(0, 31),
+        "ROOTS": np.arange(0, 7),
+        "IL": np.arange(0, 5),
+        "SWR": np.arange(0, 5),
+        "DRAINAGE": np.arange(1, 8),
+        "AWC": np.arange(1, 8),
+        "ADD_PROP": [0, 2, 3],
+        "LAYER": np.arange(0, 7),
+        "TEXTURE_SOTER": ["C", "F", "M", "V", "Z"]
+    }
 
-    encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore').set_output(transform="pandas")
-
-    categorical_df = df[categorical_features]
-    ohe_df = encoder.fit_transform(categorical_df)
+    for feature, range in categorical_mapping.items():
+        # df[feature] = df[feature].astype("category", categories=range)
+        cat_dtype = CategoricalDtype(
+            categories=range, ordered=True)
+        df[feature].astype(cat_dtype)
+    ohe_df = pd.get_dummies(df[categorical_features])
     df = pd.concat([df, ohe_df], axis=1).drop(columns=categorical_features)
+
+    # encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore').set_output(transform="pandas")
+    # categorical_df = df[categorical_features]
+    # ohe_df = encoder.fit_transform(categorical_df)
+    # df = pd.concat([df, ohe_df], axis=1).drop(columns=categorical_features)
     return df
 
 
@@ -141,33 +167,10 @@ def pre_process_data(df):
     # Original features pre-OHE
     # features = ["WRB_PHASES","WRB4","WRB2","FAO90","ROOT_DEPTH","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TOPDEP","BOTDEP","COARSE","SAND","SILT","CLAY","TEXTURE_USDA","TEXTURE_SOTER","BULK","REF_BULK","PH_WATER","TOTAL_N","CN_RATIO","CEC_SOIL","CEC_CLAY","CEC_EFF","TEB","BSAT","ALUM_SAT","ESP","TCARBON_EQ","GYPSUM","ELEC_COND"]
 
-    # features = ["TOPDEP","BOTDEP","COARSE","SAND","SILT","CLAY","TEXTURE_USDA","BULK","REF_BULK","PH_WATER","TOTAL_N","CN_RATIO","CEC_SOIL","CEC_CLAY","CEC_EFF","TEB","BSAT","ALUM_SAT","ESP","TCARBON_EQ","GYPSUM","ELEC_COND"]
-    # feature_dict = {
-    #     "WRB_PHASES" : 556,
-    #     "WRB4" : 191,
-    #     "WRB2" : 35,
-    #     "FAO90" : 0,
-    #     "ROOT_DEPTH" : 0,
-    #     "PHASE1" : 0,
-    #     "PHASE2": 0,
-    #     "ROOTS" : 0,
-    #     "IL" : 0,
-    #     "SWR" : 0,
-    #     "DRAINAGE" : 0,
-    #     "AWC" : 7,
-    #     "ADD_PROP" : 0,
-    #     "LAYER" : 1,
-    #     "TEXTURE_SOTER" : 0
-    # }
-    # for feature in feature_dict.keys():
-    #     for i in range(1, feature_dict[feature] + 1):
-    #         features.append(f"{feature}_{i}")
-    #     features.append(f"{feature}_nan")
-
     # Excludes ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
     features = [
-        'TOPDEP', 'BOTDEP', 'COARSE', 'SAND', 'SILT', 'CLAY', 'TEXTURE_USDA', 'BULK',
-        'REF_BULK', 'PH_WATER', 'TOTAL_N', 'CN_RATIO', 'CEC_SOIL', 'CEC_CLAY',
+        'TOPDEP', 'BOTDEP', 'COARSE', 'SAND', 'SILT', 'CLAY', 'TEXTURE_USDA',
+        'BULK', 'REF_BULK', 'PH_WATER', 'TOTAL_N', 'CN_RATIO', 'CEC_SOIL', 'CEC_CLAY',
         'CEC_EFF', 'TEB', 'BSAT', 'ALUM_SAT', 'ESP', 'TCARBON_EQ', 'GYPSUM', 'ELEC_COND',
         'WRB_PHASES_1', 'WRB_PHASES_2', 'WRB_PHASES_3', 'WRB_PHASES_5',
         'WRB_PHASES_6', 'WRB_PHASES_8', 'WRB_PHASES_9', 'WRB_PHASES_10',
@@ -288,72 +291,69 @@ def pre_process_data(df):
         'WRB_PHASES_538', 'WRB_PHASES_539', 'WRB_PHASES_540', 'WRB_PHASES_541',
         'WRB_PHASES_542', 'WRB_PHASES_543', 'WRB_PHASES_544', 'WRB_PHASES_546',
         'WRB_PHASES_548', 'WRB_PHASES_549', 'WRB_PHASES_551', 'WRB_PHASES_552',
-        'WRB_PHASES_553', 'WRB_PHASES_555', 'WRB_PHASES_556', 'WRB_PHASES_nan',
-        'WRB4_1', 'WRB4_2', 'WRB4_3', 'WRB4_4', 'WRB4_6', 'WRB4_8', 'WRB4_9', 'WRB4_10',
-        'WRB4_11', 'WRB4_12', 'WRB4_13', 'WRB4_16', 'WRB4_17', 'WRB4_18', 'WRB4_19',
-        'WRB4_20', 'WRB4_24', 'WRB4_27', 'WRB4_28', 'WRB4_29', 'WRB4_30', 'WRB4_31',
-        'WRB4_32', 'WRB4_33', 'WRB4_34', 'WRB4_35', 'WRB4_36', 'WRB4_37', 'WRB4_38',
-        'WRB4_39', 'WRB4_40', 'WRB4_41', 'WRB4_42', 'WRB4_43', 'WRB4_44', 'WRB4_45',
-        'WRB4_46', 'WRB4_47', 'WRB4_48', 'WRB4_49', 'WRB4_50', 'WRB4_51', 'WRB4_52',
-        'WRB4_53', 'WRB4_54', 'WRB4_55', 'WRB4_56', 'WRB4_57', 'WRB4_58', 'WRB4_59',
-        'WRB4_60', 'WRB4_61', 'WRB4_62', 'WRB4_63', 'WRB4_64', 'WRB4_65', 'WRB4_66',
-        'WRB4_67', 'WRB4_68', 'WRB4_70', 'WRB4_71', 'WRB4_73', 'WRB4_74', 'WRB4_75',
-        'WRB4_76', 'WRB4_79', 'WRB4_80', 'WRB4_81', 'WRB4_82', 'WRB4_84', 'WRB4_85',
-        'WRB4_86', 'WRB4_88', 'WRB4_89', 'WRB4_90', 'WRB4_91', 'WRB4_92', 'WRB4_93',
-        'WRB4_94', 'WRB4_96', 'WRB4_97', 'WRB4_98', 'WRB4_99', 'WRB4_100', 'WRB4_101',
-        'WRB4_102', 'WRB4_103', 'WRB4_104', 'WRB4_105', 'WRB4_106', 'WRB4_107',
-        'WRB4_108', 'WRB4_109', 'WRB4_110', 'WRB4_111', 'WRB4_112', 'WRB4_113',
-        'WRB4_114', 'WRB4_115', 'WRB4_116', 'WRB4_117', 'WRB4_118', 'WRB4_119',
-        'WRB4_121', 'WRB4_123', 'WRB4_125', 'WRB4_126', 'WRB4_127', 'WRB4_128',
-        'WRB4_129', 'WRB4_130', 'WRB4_131', 'WRB4_134', 'WRB4_135', 'WRB4_136',
-        'WRB4_137', 'WRB4_138', 'WRB4_139', 'WRB4_140', 'WRB4_141', 'WRB4_142',
-        'WRB4_143', 'WRB4_144', 'WRB4_145', 'WRB4_146', 'WRB4_148', 'WRB4_149',
-        'WRB4_150', 'WRB4_152', 'WRB4_153', 'WRB4_154', 'WRB4_155', 'WRB4_156',
-        'WRB4_157', 'WRB4_158', 'WRB4_159', 'WRB4_160', 'WRB4_161', 'WRB4_162',
-        'WRB4_164', 'WRB4_165', 'WRB4_167', 'WRB4_168', 'WRB4_169', 'WRB4_170',
-        'WRB4_171', 'WRB4_172', 'WRB4_173', 'WRB4_174', 'WRB4_175', 'WRB4_177',
-        'WRB4_178', 'WRB4_179', 'WRB4_180', 'WRB4_181', 'WRB4_184', 'WRB4_185',
-        'WRB4_187', 'WRB4_188', 'WRB4_189', 'WRB4_190', 'WRB4_191', 'WRB4_nan',
-        'WRB2_1', 'WRB2_2', 'WRB2_3', 'WRB2_4', 'WRB2_5', 'WRB2_6', 'WRB2_7', 'WRB2_8',
-        'WRB2_9', 'WRB2_10', 'WRB2_11', 'WRB2_12', 'WRB2_13', 'WRB2_14', 'WRB2_15',
-        'WRB2_16', 'WRB2_17', 'WRB2_18', 'WRB2_19', 'WRB2_20', 'WRB2_21', 'WRB2_22',
-        'WRB2_23', 'WRB2_24', 'WRB2_25', 'WRB2_26', 'WRB2_27', 'WRB2_28', 'WRB2_29',
-        'WRB2_30', 'WRB2_31', 'WRB2_32', 'WRB2_33', 'WRB2_34', 'WRB2_35', 'WRB2_nan',
-        'FAO90_1', 'FAO90_2', 'FAO90_3', 'FAO90_4', 'FAO90_5', 'FAO90_6', 'FAO90_7',
-        'FAO90_8', 'FAO90_9', 'FAO90_10', 'FAO90_11', 'FAO90_12', 'FAO90_14',
-        'FAO90_15', 'FAO90_16', 'FAO90_17', 'FAO90_18', 'FAO90_19', 'FAO90_20',
-        'FAO90_21', 'FAO90_22', 'FAO90_23', 'FAO90_25', 'FAO90_26', 'FAO90_27',
-        'FAO90_28', 'FAO90_29', 'FAO90_30', 'FAO90_31', 'FAO90_32', 'FAO90_33',
-        'FAO90_34', 'FAO90_35', 'FAO90_37', 'FAO90_38', 'FAO90_39', 'FAO90_40',
-        'FAO90_41', 'FAO90_42', 'FAO90_43', 'FAO90_44', 'FAO90_45', 'FAO90_46',
-        'FAO90_47', 'FAO90_48', 'FAO90_49', 'FAO90_51', 'FAO90_52', 'FAO90_53',
-        'FAO90_54', 'FAO90_55', 'FAO90_56', 'FAO90_57', 'FAO90_58', 'FAO90_59',
-        'FAO90_60', 'FAO90_61', 'FAO90_62', 'FAO90_63', 'FAO90_64', 'FAO90_65',
-        'FAO90_66', 'FAO90_67', 'FAO90_68', 'FAO90_69', 'FAO90_70', 'FAO90_71',
-        'FAO90_72', 'FAO90_73', 'FAO90_74', 'FAO90_75', 'FAO90_76', 'FAO90_77',
-        'FAO90_79', 'FAO90_81', 'FAO90_82', 'FAO90_83', 'FAO90_84', 'FAO90_85',
-        'FAO90_86', 'FAO90_87', 'FAO90_88', 'FAO90_89', 'FAO90_90', 'FAO90_91',
-        'FAO90_92', 'FAO90_93', 'FAO90_94', 'FAO90_95', 'FAO90_97', 'FAO90_98',
-        'FAO90_99', 'FAO90_100', 'FAO90_101', 'FAO90_102', 'FAO90_103', 'FAO90_104',
-        'FAO90_105', 'FAO90_106', 'FAO90_107', 'FAO90_108', 'FAO90_109', 'FAO90_110',
-        'FAO90_111', 'FAO90_112', 'FAO90_113', 'FAO90_114', 'FAO90_115', 'FAO90_116',
-        'FAO90_117', 'FAO90_118', 'FAO90_119', 'FAO90_120', 'FAO90_121', 'FAO90_122',
-        'FAO90_123', 'FAO90_124', 'FAO90_126', 'FAO90_127', 'FAO90_128', 'FAO90_129',
-        'FAO90_131', 'FAO90_132', 'FAO90_133', 'FAO90_134', 'FAO90_135', 'FAO90_136',
-        'FAO90_137', 'FAO90_138', 'FAO90_139', 'FAO90_140', 'FAO90_141', 'FAO90_143',
-        'FAO90_144', 'FAO90_145', 'FAO90_146', 'FAO90_147', 'FAO90_148', 'FAO90_149',
-        'FAO90_150', 'FAO90_151', 'FAO90_152', 'FAO90_153', 'FAO90_154', 'FAO90_155',
-        'FAO90_156', 'FAO90_157', 'FAO90_158', 'FAO90_159', 'FAO90_160', 'FAO90_161',
-        'FAO90_162', 'FAO90_163', 'FAO90_164', 'FAO90_165', 'FAO90_166', 'FAO90_167',
-        'FAO90_168', 'FAO90_170', 'FAO90_171', 'FAO90_172', 'FAO90_173', 'FAO90_174',
-        'FAO90_175', 'FAO90_176', 'FAO90_177', 'FAO90_178', 'FAO90_179', 'FAO90_180',
-        'FAO90_181', 'FAO90_182', 'FAO90_183', 'FAO90_184', 'FAO90_186', 'FAO90_187',
-        'FAO90_188', 'FAO90_189', 'FAO90_190', 'FAO90_193', 'FAO90_nan', 'PHASE1_nan',
-        'PHASE2_nan', 'ROOTS_nan', 'IL_nan', 'SWR_nan', 'DRAINAGE_2', 'DRAINAGE_4',
-        'DRAINAGE_5', 'DRAINAGE_6', 'DRAINAGE_7', 'DRAINAGE_nan', 'AWC_1', 'AWC_2',
-        'AWC_3', 'AWC_4', 'AWC_5', 'AWC_7', 'AWC_nan', 'ADD_PROP_nan', 'LAYER_0',
-        'LAYER_1', 'LAYER_2', 'LAYER_3', 'LAYER_4', 'LAYER_5', 'LAYER_6', 'LAYER_nan',
-        'TEXTURE_SOTER_nan'
+        'WRB_PHASES_553', 'WRB_PHASES_555', 'WRB_PHASES_556', 'WRB4_1', 'WRB4_2',
+        'WRB4_3', 'WRB4_4', 'WRB4_6', 'WRB4_8', 'WRB4_9', 'WRB4_10', 'WRB4_11',
+        'WRB4_12', 'WRB4_13', 'WRB4_16', 'WRB4_17', 'WRB4_18', 'WRB4_19', 'WRB4_20',
+        'WRB4_24', 'WRB4_27', 'WRB4_28', 'WRB4_29', 'WRB4_30', 'WRB4_31', 'WRB4_32',
+        'WRB4_33', 'WRB4_34', 'WRB4_35', 'WRB4_36', 'WRB4_37', 'WRB4_38', 'WRB4_39',
+        'WRB4_40', 'WRB4_41', 'WRB4_42', 'WRB4_43', 'WRB4_44', 'WRB4_45', 'WRB4_46',
+        'WRB4_47', 'WRB4_48', 'WRB4_49', 'WRB4_50', 'WRB4_51', 'WRB4_52', 'WRB4_53',
+        'WRB4_54', 'WRB4_55', 'WRB4_56', 'WRB4_57', 'WRB4_58', 'WRB4_59', 'WRB4_60',
+        'WRB4_61', 'WRB4_62', 'WRB4_63', 'WRB4_64', 'WRB4_65', 'WRB4_66', 'WRB4_67',
+        'WRB4_68', 'WRB4_70', 'WRB4_71', 'WRB4_73', 'WRB4_74', 'WRB4_75', 'WRB4_76',
+        'WRB4_79', 'WRB4_80', 'WRB4_81', 'WRB4_82', 'WRB4_84', 'WRB4_85', 'WRB4_86',
+        'WRB4_88', 'WRB4_89', 'WRB4_90', 'WRB4_91', 'WRB4_92', 'WRB4_93', 'WRB4_94',
+        'WRB4_96', 'WRB4_97', 'WRB4_98', 'WRB4_99', 'WRB4_100', 'WRB4_101', 'WRB4_102',
+        'WRB4_103', 'WRB4_104', 'WRB4_105', 'WRB4_106', 'WRB4_107', 'WRB4_108',
+        'WRB4_109', 'WRB4_110', 'WRB4_111', 'WRB4_112', 'WRB4_113', 'WRB4_114',
+        'WRB4_115', 'WRB4_116', 'WRB4_117', 'WRB4_118', 'WRB4_119', 'WRB4_121',
+        'WRB4_123', 'WRB4_125', 'WRB4_126', 'WRB4_127', 'WRB4_128', 'WRB4_129',
+        'WRB4_130', 'WRB4_131', 'WRB4_134', 'WRB4_135', 'WRB4_136', 'WRB4_137',
+        'WRB4_138', 'WRB4_139', 'WRB4_140', 'WRB4_141', 'WRB4_142', 'WRB4_143',
+        'WRB4_144', 'WRB4_145', 'WRB4_146', 'WRB4_148', 'WRB4_149', 'WRB4_150',
+        'WRB4_152', 'WRB4_153', 'WRB4_154', 'WRB4_155', 'WRB4_156', 'WRB4_157',
+        'WRB4_158', 'WRB4_159', 'WRB4_160', 'WRB4_161', 'WRB4_162', 'WRB4_164',
+        'WRB4_165', 'WRB4_167', 'WRB4_168', 'WRB4_169', 'WRB4_170', 'WRB4_171',
+        'WRB4_172', 'WRB4_173', 'WRB4_174', 'WRB4_175', 'WRB4_177', 'WRB4_178',
+        'WRB4_179', 'WRB4_180', 'WRB4_181', 'WRB4_184', 'WRB4_185', 'WRB4_187',
+        'WRB4_188', 'WRB4_189', 'WRB4_190', 'WRB4_191', 'WRB2_1', 'WRB2_2', 'WRB2_3',
+        'WRB2_4', 'WRB2_5', 'WRB2_6', 'WRB2_7', 'WRB2_8', 'WRB2_9', 'WRB2_10', 'WRB2_11',
+        'WRB2_12', 'WRB2_13', 'WRB2_14', 'WRB2_15', 'WRB2_16', 'WRB2_17', 'WRB2_18',
+        'WRB2_19', 'WRB2_20', 'WRB2_21', 'WRB2_22', 'WRB2_23', 'WRB2_24', 'WRB2_25',
+        'WRB2_26', 'WRB2_27', 'WRB2_28', 'WRB2_29', 'WRB2_30', 'WRB2_31', 'WRB2_32',
+        'WRB2_33', 'WRB2_34', 'WRB2_35', 'FAO90_1', 'FAO90_2', 'FAO90_3', 'FAO90_4',
+        'FAO90_5', 'FAO90_6', 'FAO90_7', 'FAO90_8', 'FAO90_9', 'FAO90_10', 'FAO90_11',
+        'FAO90_12', 'FAO90_14', 'FAO90_15', 'FAO90_16', 'FAO90_17', 'FAO90_18',
+        'FAO90_19', 'FAO90_20', 'FAO90_21', 'FAO90_22', 'FAO90_23', 'FAO90_25',
+        'FAO90_26', 'FAO90_27', 'FAO90_28', 'FAO90_29', 'FAO90_30', 'FAO90_31',
+        'FAO90_32', 'FAO90_33', 'FAO90_34', 'FAO90_35', 'FAO90_37', 'FAO90_38',
+        'FAO90_39', 'FAO90_40', 'FAO90_41', 'FAO90_42', 'FAO90_43', 'FAO90_44',
+        'FAO90_45', 'FAO90_46', 'FAO90_47', 'FAO90_48', 'FAO90_49', 'FAO90_51',
+        'FAO90_52', 'FAO90_53', 'FAO90_54', 'FAO90_55', 'FAO90_56', 'FAO90_57',
+        'FAO90_58', 'FAO90_59', 'FAO90_60', 'FAO90_61', 'FAO90_62', 'FAO90_63',
+        'FAO90_64', 'FAO90_65', 'FAO90_66', 'FAO90_67', 'FAO90_68', 'FAO90_69',
+        'FAO90_70', 'FAO90_71', 'FAO90_72', 'FAO90_73', 'FAO90_74', 'FAO90_75',
+        'FAO90_76', 'FAO90_77', 'FAO90_79', 'FAO90_81', 'FAO90_82', 'FAO90_83',
+        'FAO90_84', 'FAO90_85', 'FAO90_86', 'FAO90_87', 'FAO90_88', 'FAO90_89',
+        'FAO90_90', 'FAO90_91', 'FAO90_92', 'FAO90_93', 'FAO90_94', 'FAO90_95',
+        'FAO90_97', 'FAO90_98', 'FAO90_99', 'FAO90_100', 'FAO90_101', 'FAO90_102',
+        'FAO90_103', 'FAO90_104', 'FAO90_105', 'FAO90_106', 'FAO90_107', 'FAO90_108',
+        'FAO90_109', 'FAO90_110', 'FAO90_111', 'FAO90_112', 'FAO90_113', 'FAO90_114',
+        'FAO90_115', 'FAO90_116', 'FAO90_117', 'FAO90_118', 'FAO90_119', 'FAO90_120',
+        'FAO90_121', 'FAO90_122', 'FAO90_123', 'FAO90_124', 'FAO90_126', 'FAO90_127',
+        'FAO90_128', 'FAO90_129', 'FAO90_131', 'FAO90_132', 'FAO90_133', 'FAO90_134',
+        'FAO90_135', 'FAO90_136', 'FAO90_137', 'FAO90_138', 'FAO90_139', 'FAO90_140',
+        'FAO90_141', 'FAO90_143', 'FAO90_144', 'FAO90_145', 'FAO90_146', 'FAO90_147',
+        'FAO90_148', 'FAO90_149', 'FAO90_150', 'FAO90_151', 'FAO90_152', 'FAO90_153',
+        'FAO90_154', 'FAO90_155', 'FAO90_156', 'FAO90_157', 'FAO90_158', 'FAO90_159',
+        'FAO90_160', 'FAO90_161', 'FAO90_162', 'FAO90_163', 'FAO90_164', 'FAO90_165',
+        'FAO90_166', 'FAO90_167', 'FAO90_168', 'FAO90_170', 'FAO90_171', 'FAO90_172',
+        'FAO90_173', 'FAO90_174', 'FAO90_175', 'FAO90_176', 'FAO90_177', 'FAO90_178',
+        'FAO90_179', 'FAO90_180', 'FAO90_181', 'FAO90_182', 'FAO90_183', 'FAO90_184',
+        'FAO90_186', 'FAO90_187', 'FAO90_188', 'FAO90_189', 'FAO90_190', 'FAO90_193',
+        'DRAINAGE_2', 'DRAINAGE_4', 'DRAINAGE_5', 'DRAINAGE_6', 'DRAINAGE_7', 'AWC_1',
+        'AWC_2', 'AWC_3', 'AWC_4', 'AWC_5', 'AWC_7', 'LAYER_0', 'LAYER_1', 'LAYER_2',
+        'LAYER_3', 'LAYER_4', 'LAYER_5', 'LAYER_6'
     ]
 
     float_features = df[features].astype(float)
