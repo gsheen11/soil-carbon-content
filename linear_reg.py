@@ -99,7 +99,7 @@ def main():
 
 
     model = FullBatchRegressor(learning_rate=0.01, epochs=2000, lasso_coef=.1)
-    # model.fit(X, Y)
+    model.fit(X, Y)
     model.load_weights()
 
     # model.save_weights()
@@ -118,13 +118,10 @@ def main():
     print("test loss")
     loss = np.mean((y_testing_hat - Y_test) ** 2)
     print(loss)
-    i = np.argmax(Y-y_training_hat)
-    print(i, Y[i])
-    # plotting.scatter(Y,y_training_hat)
+
+    plotting.scatter(Y,y_training_hat)
     # plotting.residuals(Y,y_training_hat)
-    i = np.argmax(Y_test-y_testing_hat)
-    print(i, Y_test[i])
-    # plotting.scatter(Y_test,y_testing_hat)
+    plotting.scatter(Y_test,y_testing_hat)
     # plotting.residuals(Y_test,y_testing_hat)
 
 
