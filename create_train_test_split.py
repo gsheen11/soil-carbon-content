@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 
 data_csv = 'csv_data/HWSD2_LAYERS.csv'
 
-def filter_dataset(data_csv,):
+def filter_dataset(data_csv):
     """
     Removes ID columns and datapoints with invalid carbon content values
     """
