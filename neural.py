@@ -216,9 +216,11 @@ def crossValidate(n_splits=5):
         Y_train, Y_val = Y[train_index], Y[val_index]
         
         model = NeuralModel(input_size=len(K.FEATURES_USED), hidden_size=64, drop_prob=0.3, X=X)
-        train_stochastic(model, X_train, Y_train, learning_rate=0.001, num_epochs=100)
+        train_stochastic(model, X_train, Y_train, learning_rate=0.001, num_epochs=10)
         
-        score =  torch.mean((model(X_val) - Y_val) ** 2)
+        Y_hat = model(X_val)
+        Y_hat = torch.flatten(Y_hat)
+        score =  torch.mean((Y_hat - Y_val) ** 2)
         print("SCORE: ", score.item())
         
         scores.append(score.item())
