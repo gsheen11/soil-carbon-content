@@ -50,10 +50,10 @@ class FullBatchRegressor:
     
     def save_weights(self):
         data = {'weights': self.weights, 'bias': self.bias}
-        np.save("lin_reg_model.npy", data)
+        np.save("models/lin_reg_model.npy", data)
 
     def load_weights(self):
-        data = np.load("lin_reg_model.npy", allow_pickle=True).item()
+        data = np.load("models/lin_reg_model.npy", allow_pickle=True).item()
         self.weights = data['weights']
         self.bias = data['bias']
 

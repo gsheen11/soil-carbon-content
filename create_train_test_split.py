@@ -1,5 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from copy import deepcopy
+import numpy as np
 
 data_csv = 'csv_data/HWSD2_LAYERS.csv'
 
@@ -31,6 +33,26 @@ def split_and_save_dataset(df):
     train_set.to_csv('data/train_set.csv', index=False)
     test_set.to_csv('data/test_set.csv', index=False)
 
+
+def create_subset_test_sets():
+    test_set = pd.read_csv("./data/test_set.csv")
+
+    num_features = test_set.shape[1]
+    features_to_consider = test_set.columns.difference(["ORG_CARBON"])
+    
+    for i in [0, 5,10,15,20,25,30,35]:
+        # Deep copy the test set to avoid modifying the original DataFrame
+        test_copy = deepcopy(test_set)
+        
+        for index, row in test_copy.iterrows():
+            # Randomly choose 'i' features to set to NaN
+            nan_features = np.random.choice(features_to_consider, size=min(i, num_features), replace=False)
+            test_copy.loc[index, nan_features] = np.nan
+        
+        test_copy.to_csv('data/test_set_' + str(i) + '.csv', index=False)
+
+
 if __name__ == "__main__":
-    df = filter_dataset(data_csv)
-    split_and_save_dataset(df)
+    # df = filter_dataset(data_csv)
+    # split_and_save_dataset(df)
+    create_subset_test_sets()
