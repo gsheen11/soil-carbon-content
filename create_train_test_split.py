@@ -1,23 +1,36 @@
 import pandas as pd
-from sklearn.model_selection import GroupShuffleSplit
+from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('csv_data/HWSD2_LAYERS.csv', dtype={2: str, 3: str})
+data_csv = 'csv_data/HWSD2_LAYERS.csv'
 
-first_column_name = df.columns[0]
-df = df.drop(first_column_name, axis=1) # dropping row number
+def filter_dataset(data_csv):
+    """
+    Removes ID columns and datapoints with invalid carbon content values
+    """
+    df = pd.read_csv(data_csv, dtype={2: str, 3: str})
+    df = df.drop(df.columns[0], axis=1) # Dropping row number
 
-header_df = pd.read_csv('csv_data/HWSD2_LAYERS_METADATA.csv')
-headers = header_df['Feature Symbol'].values
-df.columns = headers
+    # Remove ID columns
+    df = df.drop(df.columns[0:9], axis=1)
 
-df_filtered = df[(df['ORG_CARBON'] >= 0) & (df['ORG_CARBON'].notna())]
-# values_counts = df_filtered['ORG_CARBON'].value_counts()
+    # Filter NaN and negative carbon values
+    df = df[(df['ORG_CARBON'] >= 0) & (df['ORG_CARBON'].notna())]
 
-# Split the data while keeping soil units together
-gss = GroupShuffleSplit(n_splits=1, train_size=0.8, random_state=42)
-for train_idx, test_idx in gss.split(df_filtered, groups=df_filtered['ORG_CARBON']):
-    train_set = df_filtered.iloc[train_idx]
-    test_set = df_filtered.iloc[test_idx]
+    # Remove duplicate datapoints
+    df = df.drop_duplicates()
 
-train_set.to_csv('data/train_set.csv', index=False)
-test_set.to_csv('data/test_set.csv', index=False)
+    return df
+
+
+def split_and_save_dataset(df):
+    """
+    Splits the data into training and testing
+    """
+    train_set, test_set = train_test_split(df, test_size=0.2, random_state=42)
+
+    train_set.to_csv('data/train_set.csv', index=False)
+    test_set.to_csv('data/test_set.csv', index=False)
+
+if __name__ == "__main__":
+    df = filter_dataset(data_csv)
+    split_and_save_dataset(df)

@@ -124,7 +124,7 @@ def pre_process_one_hot_encoding(df):
     categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER"]
     
     categorical_mapping = {
-        "WRB_PHASES": np.arange(1, 557),
+        # "WRB_PHASES": np.arange(1, 557),
         "WRB4": np.arange(1, 192),
         "WRB2": np.arange(1, 36),
         "FAO90": np.arange(1, 194),
@@ -149,7 +149,6 @@ def pre_process_one_hot_encoding(df):
 
     return df
 
-
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
     df = pre_process_one_hot_encoding(df)
@@ -166,7 +165,7 @@ def pre_process_data(df):
     for exclusion in exclude_features:
       features.remove(exclusion)
 
-    float_features = df[features].astype(float)
+    # float_features = df[features].astype(float)
 
     y = df["ORG_CARBON"].astype(float).values
 
@@ -175,7 +174,10 @@ def pre_process_data(df):
     # one_hot_encoded_feature = encoder.fit_transform(categorical_feature)
 
     # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
-    x = np.concatenate([float_features])
+    # x = np.concatenate([float_features])
+    exclude = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
+    x = df[features].astype(float).to_numpy()
+    #x = df.drop(columns=exclude).astype(float).to_numpy()
 
     mask = ~np.isnan(y) & (y >= 0)
 
