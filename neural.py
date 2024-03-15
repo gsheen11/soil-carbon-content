@@ -135,9 +135,9 @@ def main():
     hidden_size = 64
     model = NeuralModel(input_size=input_size, hidden_size=hidden_size)
     # train(model, learning_rate=.001, num_epochs=10000)
-    train_stochastic(model, learning_rate=.001, num_epochs=300)
-    save_model(model)
-    # load_model(model)
+    # train_stochastic(model, learning_rate=.001, num_epochs=300)
+    # save_model(model)
+    load_model(model, "model-stochastic.pth")
     eval_model(model)
 
 

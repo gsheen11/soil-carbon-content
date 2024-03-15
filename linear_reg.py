@@ -39,7 +39,7 @@ class FullBatchRegressor:
                 loss = np.nanmean((self.predict(X_normalized)- y) ** 2)
                 print("Loss for Epoch", epoch, "is", loss, "L1 Norm:", np.linalg.norm(self.weights, ord=1))
 
-        print(self.weights, self.bias)
+        # print(self.weights, self.bias)
 
         self.bias = self.bias - np.dot(mean / std, self.weights)
         self.weights = self.weights / std
@@ -97,10 +97,10 @@ def main():
     X, Y = util.load_training_data()
     X_test, Y_test = util.load_test_data()
 
-    print(X.shape, Y.shape, X_test.shape, Y_test.shape)
+    # print(X.shape, Y.shape, X_test.shape, Y_test.shape)
 
 
-    model = FullBatchRegressor(learning_rate=0.01, epochs=500, lasso_coef=.1)
+    model = FullBatchRegressor(learning_rate=0.01, epochs=1000, lasso_coef=.1)
     model.fit(X, Y)
     # model.load_weights()
 
@@ -110,8 +110,8 @@ def main():
 
     # print(model.weights, model.bias)
 
-    print(np.mean(Y), np.std(Y))
-    print(np.mean(Y_test), np.std(Y_test))
+    # print(np.mean(Y), np.std(Y))
+    # print(np.mean(Y_test), np.std(Y_test))
 
     print("training loss")
     loss = np.mean((y_training_hat - Y) ** 2)
