@@ -63,62 +63,63 @@ def pre_process_categorical_feature(df):
     mapping_13[""] = ""
     df["FAO90"] = df["FAO90"].map(mapping_13)
 
-    temp = pd.read_csv("csv_data/D_ROOT_DEPTH.csv")
-    mapping_14 = {float(k): v for k, v in temp.set_index("0")["1"].to_dict().items()}
-    df['ROOT_DEPTH'] = df['ROOT_DEPTH'].map(mapping_14)
-    reverse_mapping_14 = temp.set_index("1")["0"].astype(int).to_dict()
-    df['ROOT_DEPTH'] = df['ROOT_DEPTH'].map(reverse_mapping_14)    
+    # temp = pd.read_csv("csv_data/D_ROOT_DEPTH.csv")
+    # mapping_14 = {float(k): v for k, v in temp.set_index("0")["1"].to_dict().items()}
+    # df['ROOT_DEPTH'] = df['ROOT_DEPTH'].map(mapping_14)
+    # reverse_mapping_14 = temp.set_index("1")["0"].astype(int).to_dict()
+    # df['ROOT_DEPTH'] = df['ROOT_DEPTH'].map(reverse_mapping_14)    
 
-    temp = pd.read_csv("csv_data/D_PHASE.csv")
-    mapping_15_16 = temp.set_index("1").to_dict()["0"]
-    mapping_15_16[""] = ""
-    df["PHASE1"] = df["PHASE1"].map(mapping_15_16)
-    df["PHASE2"] = df["PHASE2"].map(mapping_15_16)
+    # temp = pd.read_csv("csv_data/D_PHASE.csv")
+    # mapping_15_16 = temp.set_index("1").to_dict()["0"]
+    # mapping_15_16[""] = ""
+    # df["PHASE1"] = df["PHASE1"].map(mapping_15_16)
+    # df["PHASE2"] = df["PHASE2"].map(mapping_15_16)
 
-    temp = pd.read_csv("csv_data/D_ROOTS.csv")
-    mapping_17 = temp.set_index("1").to_dict()["0"]
-    mapping_17[""] = ""
-    df["ROOTS"] = df["ROOTS"].map(mapping_17)
+    # temp = pd.read_csv("csv_data/D_ROOTS.csv")
+    # mapping_17 = temp.set_index("1").to_dict()["0"]
+    # mapping_17[""] = ""
+    # df["ROOTS"] = df["ROOTS"].map(mapping_17)
 
-    temp = pd.read_csv("csv_data/D_IL.csv")
-    mapping_18 = temp.set_index("1").to_dict()["0"]
-    mapping_18[""] = ""
-    df["IL"] = df["IL"].map(mapping_18)
+    # temp = pd.read_csv("csv_data/D_IL.csv")
+    # mapping_18 = temp.set_index("1").to_dict()["0"]
+    # mapping_18[""] = ""
+    # df["IL"] = df["IL"].map(mapping_18)
 
-    temp = pd.read_csv("csv_data/D_SWR.csv")
-    mapping_19 = temp.set_index("1").to_dict()["0"]
-    mapping_19[""] = ""
-    df["SWR"] = df["SWR"].map(mapping_19)
+    # temp = pd.read_csv("csv_data/D_SWR.csv")
+    # mapping_19 = temp.set_index("1").to_dict()["0"]
+    # mapping_19[""] = ""
+    # df["SWR"] = df["SWR"].map(mapping_19)
 
     temp = pd.read_csv("csv_data/D_DRAINAGE.csv")
     mapping_20 = temp.set_index("1").to_dict()["0"]
     mapping_20[""] = ""
     df["DRAINAGE"] = df["DRAINAGE"].map(mapping_20)
 
-    temp = pd.read_csv("csv_data/D_AWC.csv")
-    mapping_21 = temp.set_index("1").to_dict()["0"]
-    mapping_21[""] = ""
-    df["AWC"] = df["AWC"].map(mapping_21)
+    # temp = pd.read_csv("csv_data/D_AWC.csv")
+    # mapping_21 = temp.set_index("1").to_dict()["0"]
+    # mapping_21[""] = ""
+    # df["AWC"] = df["AWC"].map(mapping_21)
 
-    temp = pd.read_csv("csv_data/D_ADD_PROP.csv")
-    mapping_22 = temp.set_index("1").to_dict()["0"]
-    mapping_22[""] = ""
-    df["ADD_PROP"] = df["ADD_PROP"].map(mapping_22)
+    # temp = pd.read_csv("csv_data/D_ADD_PROP.csv")
+    # mapping_22 = temp.set_index("1").to_dict()["0"]
+    # mapping_22[""] = ""
+    # df["ADD_PROP"] = df["ADD_PROP"].map(mapping_22)
 
     temp = pd.read_csv("csv_data/D_DEPTH_LAYER.csv")
     mapping_23 = temp.set_index("1").to_dict()["0"]
     mapping_23[""] = ""
     df["LAYER"] = df["LAYER"].map(mapping_23)
 
-    temp = pd.read_csv("csv_data/D_TEXTURE_USDA.csv")
-    mapping_30 = temp.set_index("1").to_dict()["0"]
-    mapping_30[""] = ""
-    df["TEXTURE_USDA"] = df["TEXTURE_USDA"].map(mapping_30)
+    # temp = pd.read_csv("csv_data/D_TEXTURE_USDA.csv")
+    # mapping_30 = temp.set_index("1").to_dict()["0"]
+    # mapping_30[""] = ""
+    # df["TEXTURE_USDA"] = df["TEXTURE_USDA"].map(mapping_30)
 
-    temp = pd.read_csv("csv_data/D_TEXTURE_SOTER.csv")
-    mapping_31 = temp.set_index("1").to_dict()["0"]
-    mapping_31[""] = ""
-    df["TEXTURE_SOTER"] = df["TEXTURE_SOTER"].map(mapping_31)
+    # temp = pd.read_csv("csv_data/D_TEXTURE_SOTER.csv")
+    # mapping_31 = temp.set_index("1").to_dict()["0"]
+    # mapping_31[""] = ""
+    # print(mapping_31)
+    # df["TEXTURE_SOTER"] = df["TEXTURE_SOTER"].map(mapping_31)
 
     return df
 
