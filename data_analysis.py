@@ -99,7 +99,20 @@ def plot_categorical_features(df):
 
 if __name__ == "__main__":
     df = pd.read_csv(data_csv)
+
+    print("Before Pre-Process")
+    for categorical_feature in K.CATEGORICAL_FEATURES:
+        category_counts = df[categorical_feature].value_counts(dropna=False).sort_index()
+        print(category_counts)
+
     # plot_correlation_matrix(df)
     # plot_cooccurrence_matrix(df)
-    plot_categorical_features(df)
+    # plot_categorical_features(df)
+    
+    # after pre process
+    print("\n\n\nAfter Pre-Process")
+    df = util.pre_process_categorical_feature(df)
+    for categorical_feature in K.CATEGORICAL_FEATURES:
+        category_counts = df[categorical_feature].value_counts(dropna=False).sort_index()
+        print(category_counts)
 
