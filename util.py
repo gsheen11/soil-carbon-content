@@ -124,7 +124,7 @@ def pre_process_one_hot_encoding(df):
     categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER"]
     
     categorical_mapping = {
-        # "WRB_PHASES": np.arange(1, 557),
+        "WRB_PHASES": np.arange(1, 557),
         "WRB4": np.arange(1, 192),
         "WRB2": np.arange(1, 36),
         "FAO90": np.arange(1, 194),
