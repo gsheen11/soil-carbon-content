@@ -171,7 +171,7 @@ def pre_process_data(df):
 
     # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
     # x = np.concatenate([float_features])
-    exclude = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
+    # exclude = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
     # x = df[features].astype(float).to_numpy()
     x = df[K.FEATURES_USED].astype(float).to_numpy()
     #x = df.drop(columns=exclude).astype(float).to_numpy()
