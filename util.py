@@ -3,6 +3,8 @@ import pandas as pd
 from pandas.api.types import CategoricalDtype
 from sklearn.preprocessing import OneHotEncoder
 import csv
+import K
+import torch
 
 def get_labels():
 # def load_dataset():
@@ -151,19 +153,13 @@ def pre_process_one_hot_encoding(df):
 
 def pre_process_data(df):
     df = pre_process_categorical_feature(df)
-    df = pre_process_one_hot_encoding(df)
+    df = pre_process_one_hot_encoding(df) 
     # print("Post OHE")
     # pd.set_option('display.max_columns', None) 
     # print(df.head(1))
     # print(df.columns.values)
 
-    # Original features pre-OHE
-    # features = ["WRB_PHASES","WRB4","WRB2","FAO90","ROOT_DEPTH","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TOPDEP","BOTDEP","COARSE","SAND","SILT","CLAY","TEXTURE_USDA","TEXTURE_SOTER","BULK","REF_BULK","PH_WATER","TOTAL_N","CN_RATIO","CEC_SOIL","CEC_CLAY","CEC_EFF","TEB","BSAT","ALUM_SAT","ESP","TCARBON_EQ","GYPSUM","ELEC_COND"]
-
-    exclude_features = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
-    features = list(df.columns.values)
-    for exclusion in exclude_features:
-      features.remove(exclusion)
+    # Excludes ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
 
     # float_features = df[features].astype(float)
 
@@ -175,8 +171,9 @@ def pre_process_data(df):
 
     # x = np.concatenate([float_features.values, one_hot_encoded_feature], axis=1)
     # x = np.concatenate([float_features])
-    exclude = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
-    x = df[features].astype(float).to_numpy()
+    # exclude = ['ID', 'HWSD2_SMU_ID', 'WISE30s_SMU_ID', 'HWSD1_SMU_ID', 'COVERAGE', 'SEQUENCE', 'SHARE', 'NSC_MU_SOURCE1', 'NSC_MU_SOURCE2', 'ROOT_DEPTH', 'ORG_CARBON']
+    # x = df[features].astype(float).to_numpy()
+    x = df[K.FEATURES_USED].astype(float).to_numpy()
     #x = df.drop(columns=exclude).astype(float).to_numpy()
 
     mask = ~np.isnan(y) & (y >= 0)
@@ -188,15 +185,21 @@ def pre_process_data(df):
     return x_filtered, y_filtered
 
 
-def load_training_data():
+def load_training_data(as_tensor=False):
     df = pd.read_csv("data/train_set.csv")
     x, y = pre_process_data(df)
+    if as_tensor:
+        x = torch.tensor(x, dtype=torch.float)
+        y = torch.tensor(y, dtype=torch.float)
     return x, y
 
 
-def load_test_data():
+def load_test_data(as_tensor=False):
     df = pd.read_csv("data/test_set.csv")
     x, y = pre_process_data(df)
+    if as_tensor:
+        x = torch.tensor(x, dtype=torch.float)
+        y = torch.tensor(y, dtype=torch.float)
     return x, y
 
 
