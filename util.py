@@ -64,9 +64,10 @@ def pre_process_categorical_feature(df):
     df["FAO90"] = df["FAO90"].map(mapping_13)
 
     temp = pd.read_csv("csv_data/D_ROOT_DEPTH.csv")
-    mapping_14 = temp.set_index("1").to_dict()["0"]
-    mapping_14[""] = ""
-    df["ROOT_DEPTH"] = df["ROOT_DEPTH"].map(mapping_14)
+    mapping_14 = {float(k): v for k, v in temp.set_index("0")["1"].to_dict().items()}
+    df['ROOT_DEPTH'] = df['ROOT_DEPTH'].map(mapping_14)
+    reverse_mapping_14 = temp.set_index("1")["0"].astype(int).to_dict()
+    df['ROOT_DEPTH'] = df['ROOT_DEPTH'].map(reverse_mapping_14)    
 
     temp = pd.read_csv("csv_data/D_PHASE.csv")
     mapping_15_16 = temp.set_index("1").to_dict()["0"]
@@ -123,7 +124,7 @@ def pre_process_categorical_feature(df):
 
 
 def pre_process_one_hot_encoding(df):
-    categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER", "TEXTURE_USDA"]
+    categorical_features = K.CATEGORICAL_FEATURES
     
     categorical_mapping = {
         "WRB_PHASES": np.arange(1, 557),
@@ -140,8 +141,8 @@ def pre_process_one_hot_encoding(df):
         "AWC": np.arange(1, 8),
         "ADD_PROP": [0, 2, 3],
         "LAYER": np.arange(0, 7),
-        "TEXTURE_SOTER": ["C", "F", "M", "V", "Z"],
-        "TEXTURE_USDA": np.arange(1, 13)
+        "TEXTURE_USDA": np.arange(1, 14),
+        "TEXTURE_SOTER": ["C", "F", "M", "V", "Z"]
     }
 
     for feature, categories in categorical_mapping.items():
@@ -177,13 +178,13 @@ def pre_process_data(df):
     x = df[K.FEATURES_USED].astype(float).to_numpy()
     #x = df.drop(columns=exclude).astype(float).to_numpy()
 
-    mask = ~np.isnan(y) & (y >= 0)
+    # mask = ~np.isnan(y) & (y >= 0)
 
-    x_filtered = x[mask]
-    y_filtered = y[mask]
+    # x_filtered = x[mask]
+    # y_filtered = y[mask]
 
 
-    return x_filtered, y_filtered
+    return x, y
 
 
 def load_training_data(as_tensor=False):
