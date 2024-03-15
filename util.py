@@ -109,10 +109,10 @@ def pre_process_categorical_feature(df):
     mapping_23[""] = ""
     df["LAYER"] = df["LAYER"].map(mapping_23)
 
-    # temp = pd.read_csv("csv_data/D_TEXTURE_USDA.csv")
-    # mapping_30 = temp.set_index("1").to_dict()["0"]
-    # mapping_30[""] = ""
-    # df["TEXTURE_USDA"] = df["TEXTURE_USDA"].map(mapping_30)
+    temp = pd.read_csv("csv_data/D_TEXTURE_USDA.csv")
+    mapping_30 = temp.set_index("1").to_dict()["0"]
+    mapping_30[""] = ""
+    df["TEXTURE_USDA"] = df["TEXTURE_USDA"].map(mapping_30)
 
     temp = pd.read_csv("csv_data/D_TEXTURE_SOTER.csv")
     mapping_31 = temp.set_index("1").to_dict()["0"]
@@ -123,7 +123,7 @@ def pre_process_categorical_feature(df):
 
 
 def pre_process_one_hot_encoding(df):
-    categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER"]
+    categorical_features = ["WRB_PHASES","WRB4","WRB2","FAO90","PHASE1","PHASE2","ROOTS","IL","SWR","DRAINAGE","AWC","ADD_PROP","LAYER","TEXTURE_SOTER", "TEXTURE_USDA"]
     
     categorical_mapping = {
         "WRB_PHASES": np.arange(1, 557),
@@ -140,7 +140,8 @@ def pre_process_one_hot_encoding(df):
         "AWC": np.arange(1, 8),
         "ADD_PROP": [0, 2, 3],
         "LAYER": np.arange(0, 7),
-        "TEXTURE_SOTER": ["C", "F", "M", "V", "Z"]
+        "TEXTURE_SOTER": ["C", "F", "M", "V", "Z"],
+        "TEXTURE_USDA": np.arange(1, 13)
     }
 
     for feature, categories in categorical_mapping.items():
