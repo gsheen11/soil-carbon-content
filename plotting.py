@@ -10,7 +10,7 @@ def scatter(y, y_hat):
     # Label the axes
     plt.xlabel('Actual OCC')
     plt.ylabel('Predicted OCC')
-    plt.title('Predicted vs. Actual Organic Carbon Content')
+    # plt.title('Predicted vs. Actual Organic Carbon Content')
 
     # Show the plot
     plt.show()
@@ -27,7 +27,7 @@ def residuals(y, y_hat):
     # Label the axes
     plt.xlabel('Actual OCC')
     plt.ylabel('Residual of Predicted OCC')
-    plt.title('Residuals of Predicted Organic Carbon Content')
+    # plt.title('Residuals of Predicted Organic Carbon Content')
 
     # Show the plot
     plt.show()
