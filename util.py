@@ -197,8 +197,8 @@ def load_training_data(as_tensor=False):
     return x, y
 
 
-def load_test_data(as_tensor=False):
-    df = pd.read_csv("data/test_set.csv")
+def load_test_data(as_tensor=False, path="data/test_set.csv"):
+    df = pd.read_csv(path)
     x, y = pre_process_data(df)
     if as_tensor:
         x = torch.tensor(x, dtype=torch.float)

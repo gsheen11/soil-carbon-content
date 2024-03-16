@@ -50,12 +50,26 @@ class FullBatchRegressor:
     
     def save_weights(self):
         data = {'weights': self.weights, 'bias': self.bias}
-        np.save("lin_reg_model.npy", data)
+        np.save("models/lin_reg_model.npy", data)
 
     def load_weights(self):
-        data = np.load("lin_reg_model.npy", allow_pickle=True).item()
+        data = np.load("models/lin_reg_model.npy", allow_pickle=True).item()
         self.weights = data['weights']
         self.bias = data['bias']
+
+def eval_model_rand_subset():
+    model = FullBatchRegressor(learning_rate=0.01, epochs=1000, lasso_coef=.1)
+    model.load_weights()
+    for i in [0,5,10,15,20,25,30,35]:
+        X_test, Y_test = util.load_test_data(path="data/test_set_" + str(i) + ".csv")
+        y_testing_hat = model.predict(X_test)
+
+        # Ensure the target tensors are the correct shape
+        # Y_test = Y_test.view_as(y_testing_hat)
+
+        # Calculate and print test loss
+        test_loss = np.mean((y_testing_hat - Y_test) ** 2)
+        print("Test Loss for " + str(i) + " :", test_loss.item())
 
 # class SGDRegressor:
 #     def __init__(self, learning_rate=0.000001, epochs=5):
@@ -101,10 +115,12 @@ def main():
 
 
     model = FullBatchRegressor(learning_rate=0.01, epochs=1000, lasso_coef=.1)
-    model.fit(X, Y)
-    # model.load_weights()
+    # model.fit(X, Y)
+    model.load_weights()
 
-    model.save_weights()
+    # model.save_weights()
+    # eval_model_rand_subset()
+    # return
     y_training_hat = model.predict(X)
     y_testing_hat = model.predict(X_test)
 
@@ -121,7 +137,7 @@ def main():
     loss = np.mean((y_testing_hat - Y_test) ** 2)
     print(loss)
 
-    plotting.scatter(Y,y_training_hat)
+    # plotting.scatter(Y,y_training_hat)
     # plotting.residuals(Y,y_training_hat)
     plotting.scatter(Y_test,y_testing_hat)
     # plotting.residuals(Y_test,y_testing_hat)
