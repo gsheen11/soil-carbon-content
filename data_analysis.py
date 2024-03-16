@@ -6,7 +6,8 @@ import numpy as np
 import K
 import util
 
-data_csv = 'data/train_set.csv'
+train_data = 'data/train_set.csv'
+test_data = 'data/test_set.csv'
 
 def plot_correlation_matrix(df):
     continuous_features = K.CONTINUOUS_FEATURES
@@ -22,7 +23,6 @@ def plot_correlation_matrix(df):
     plt.tight_layout()
     plt.show()
 
-
 def plot_cooccurrence_matrix(df):
     binary_df = df.notnull().astype(int)
     co_occurrence_matrix = binary_df.T.dot(binary_df)
@@ -36,8 +36,6 @@ def plot_cooccurrence_matrix(df):
 
 def plot_categorical_feature_counts(df, categorical_feature):
     category_counts = df[categorical_feature].value_counts(dropna=False).sort_index()
-    print(categorical_feature)
-    print(category_counts)
     plt.figure(figsize=(10, 6))
     category_counts.plot(kind='bar', color='skyblue')
     plt.title(f'Counts of {categorical_feature}', fontsize=16)
@@ -55,16 +53,32 @@ def plot_categorical_feature_counts(df, categorical_feature):
             tick_labels.append(f'{int(label)}')
         else:
             tick_labels.append(label)
-    plt.xticks(tick_positions, tick_labels)
-    plt.xlim(-0.5, len(category_counts) - 0.5 + 5)  
+    plt.xticks(tick_positions, tick_labels, rotation=0)
+    plt.xlim(-0.5, len(category_counts))  
     
     plt.grid(axis='y', linestyle='--', alpha=0.7)  
     plt.show()
 
+def plot_continuous_feature_distribution(df, continuous_feature):
+    plt.figure(figsize=(10, 6))  # Adjust the size as needed
+    sns.scatterplot(x=continuous_feature, y='ORG_CARBON', data=df, alpha=0.5)  # alpha controls the transparency of the dots
+    plt.title(f'Distribution of Carbon Content for {continuous_feature}')    
+    plt.xlabel(f'{continuous_feature}')
+    plt.ylabel('ORG_CARBON')    
+    plt.show()
+
 def plot_categorical_feature_distribution(df, categorical_feature):
+    df = df.copy()
+
+    order = [str(item) for item in sorted(list(df[categorical_feature].dropna().unique()))]
+    order.append('NaN')
+
+    df.loc[:, categorical_feature] = df[categorical_feature].fillna('NaN')
+    df.loc[:, categorical_feature] = df[categorical_feature].astype(str)
+
     plt.figure(figsize=(12, 6))
-    sns.boxplot(x=categorical_feature, y='ORG_CARBON', data=df[[categorical_feature, 'ORG_CARBON']])
-    plt.title(f'Distribution of Carbon Content for {categorical_feature}')
+
+    sns.boxplot(x=categorical_feature, y='ORG_CARBON', data=df, order=order)
 
     max_ticks = 20
     current_tick_labels = [item.get_text() for item in plt.gca().get_xticklabels()]
@@ -75,44 +89,46 @@ def plot_categorical_feature_distribution(df, categorical_feature):
         try:
             new_label = f'{int(float(label))}' if pd.notna(label) and label.replace('.', '', 1).isdigit() else label
             new_tick_labels.append(new_label)
-        except ValueError:  # In case of non-numeric values
+        except ValueError: 
             new_tick_labels.append(label)
-    plt.xticks(tick_positions, new_tick_labels, rotation=45)
+    plt.xticks(tick_positions, new_tick_labels, rotation=0)
 
     plt.xlabel(categorical_feature)
     plt.ylabel('Carbon Content')
-
+    plt.title(f'Distribution of Carbon Content for {categorical_feature}')
     plt.show()
 
+def plot_continuous_features(df):
+    continuous_features = K.CONTINUOUS_FEATURES
+    continuous_features.append('ORG_CARBON')
+    df = df[continuous_features]
+    for continuous_feature in K.CONTINUOUS_FEATURES:
+        plot_continuous_feature_distribution(df, continuous_feature)
 
 def plot_categorical_features(df):
     df = util.pre_process_categorical_feature(df)
-    # categorical_features = K.CATEGORICAL_FEATURES
-    # categorical_features.append('ORG_CARBON')
-    # df = df[categorical_features]
-    for categorical_feature in K.CATEGORICAL_FEATURES:
-        category_counts = df[categorical_feature].value_counts(dropna=False).sort_index()
-        print(category_counts)
-        # plot_categorical_feature_counts(df, categorical_feature)
-        # plot_categorical_feature_distribution(df, categorical_feature)
+    categorical_features = K.CATEGORICAL_FEATURES
+    categorical_features.append('ORG_CARBON')
+    df = df[categorical_features]
+    for categorical_feature in K.CATEGORICAL_FEATURES[:2]:
+        plot_categorical_feature_counts(df, categorical_feature)
+        plot_categorical_feature_distribution(df, categorical_feature)
+
+def plot_org_carbon(df):
+    plt.figure(figsize=(10, 6))  # Adjust the size as needed
+    plt.hist(df['ORG_CARBON'], bins=30, color='skyblue', edgecolor='black')  # You can change the number of bins
+    plt.title('Histogram of ORG_CARBON')
+    plt.xlabel('ORG_CARBON')
+    plt.ylabel('Counts')
+    plt.grid(True)
+    plt.show()
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(data_csv)
+    df = pd.read_csv(train_data)
 
-    print("Before Pre-Process")
-    for categorical_feature in K.CATEGORICAL_FEATURES:
-        category_counts = df[categorical_feature].value_counts(dropna=False).sort_index()
-        print(category_counts)
-
-    # plot_correlation_matrix(df)
+    plot_correlation_matrix(df)
     # plot_cooccurrence_matrix(df)
+    # plot_continuous_features(df)
     # plot_categorical_features(df)
-    
-    # after pre process
-    print("\n\n\nAfter Pre-Process")
-    df = util.pre_process_categorical_feature(df)
-    for categorical_feature in K.CATEGORICAL_FEATURES:
-        category_counts = df[categorical_feature].value_counts(dropna=False).sort_index()
-        print(category_counts)
-
+    # plot_org_carbon(df)
