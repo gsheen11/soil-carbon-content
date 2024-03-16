@@ -8,8 +8,8 @@ def scatter(y, y_hat):
     plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=2)  # 'k--' is for black dashed line, 'lw' is line width
 
     # Label the axes
-    plt.xlabel('Actual OCC')
-    plt.ylabel('Predicted OCC')
+    plt.xlabel('Actual SOC')
+    plt.ylabel('Predicted SOC')
     # plt.title('Predicted vs. Actual Organic Carbon Content')
 
     # Show the plot

@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import util
 from tqdm import tqdm
 import plotting
+from neural import weighted_mse_loss
+import torch
 
 class FullBatchRegressor:
     def __init__(self, learning_rate=0.01, epochs=100, lasso_coef=.1):
@@ -69,6 +71,7 @@ def eval_model_rand_subset():
 
         # Calculate and print test loss
         test_loss = np.mean((y_testing_hat - Y_test) ** 2)
+        test_loss = weighted_mse_loss(torch.tensor(y_testing_hat, dtype=torch.float), torch.tensor(Y_test, dtype=torch.float))
         print("Test Loss for " + str(i) + " :", test_loss.item())
 
 # class SGDRegressor:
@@ -117,6 +120,8 @@ def main():
     model = FullBatchRegressor(learning_rate=0.01, epochs=1000, lasso_coef=.1)
     # model.fit(X, Y)
     model.load_weights()
+    eval_model_rand_subset()
+    return
 
     # model.save_weights()
     # eval_model_rand_subset()
@@ -135,6 +140,10 @@ def main():
 
     print("test loss")
     loss = np.mean((y_testing_hat - Y_test) ** 2)
+    print(loss)
+
+    print("weighted test loss")
+    loss = weighted_mse_loss(torch.tensor(y_testing_hat, dtype=torch.float), torch.tensor(Y_test, dtype=torch.float))
     print(loss)
 
     # plotting.scatter(Y,y_training_hat)

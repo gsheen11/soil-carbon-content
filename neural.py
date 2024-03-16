@@ -101,8 +101,8 @@ class NeuralModel(nn.Module):
     def __init__(self, input_size, hidden_size, drop_prob, X):
         super(NeuralModel, self).__init__()
         # self.nan_imputation = NaNImputationLayer(replacement_value=0.0)
-        self.nan_imputation = KNNImputationLayer(data=X, n_neighbors=5)
-        # self.nan_imputation = GaussianImputationLayer(X)
+        # self.nan_imputation = KNNImputationLayer(data=X, n_neighbors=5)
+        self.nan_imputation = GaussianImputationLayer(X)
         self.mask_layer = MaskingLayer()
         self.normalization_layer = NormalizationLayer(X)
         self.rand_dropout = RandomNaNDropout(drop_prob=drop_prob)
@@ -180,13 +180,15 @@ def eval_model(model):
         Y_test = Y_test.view_as(y_testing_hat)
 
         # Calculate and print training loss
-        # training_loss = torch.mean((y_training_hat - Y) ** 2)
+        training_loss = torch.mean((y_training_hat - Y) ** 2)
+        print("train loss (unqiehgted): ", training_loss)
         train_loss = weighted_mse_loss(y_training_hat, Y)
         print("Training Loss:", train_loss.item())
 
         # Calculate and print test loss
+        test_loss = torch.mean((y_testing_hat - Y_test) ** 2)
+        print("test loss > 5(unqiehgted): ", test_loss)
         test_loss = weighted_mse_loss(y_testing_hat, Y_test)
-        # test_loss = torch.mean((y_testing_hat - Y_test) ** 2)
         print("Test Loss:", test_loss.item())
 
         plotting.scatter(Y.numpy(),y_training_hat.numpy())
@@ -241,11 +243,11 @@ def main():
     X, Y = util.load_training_data(as_tensor=True)
     model = NeuralModel(input_size=len(K.FEATURES_USED), hidden_size=64, drop_prob=0.1, X=X)
     # train(model, X, Y, learning_rate=.01, num_epochs=1000)
-    train_stochastic(model, X, Y, learning_rate=.005, num_epochs=300)
-    save_model(model, filename="models/dropout.pth")
-    # load_model(model)
+    train_stochastic(model, X, Y, learning_rate=.005, num_epochs=150)
+    # save_model(model, filename="models/unweighted.pth")
+    # load_model(model, filename="models/unweighted.pth")
     eval_model(model)
-    eval_model_rand_subset(model)
+    # eval_model_rand_subset(model)
     # crossValidate(n_splits=3)
 
 
